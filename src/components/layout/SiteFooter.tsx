@@ -50,7 +50,7 @@ export async function SiteFooter() {
   return (
     <footer className="bg-navy text-white">
       <div className="bg-orange">
-        <div className="section-pad container-site flex flex-col items-start justify-between gap-4 py-6 sm:flex-row sm:items-center">
+        <div className="section-pad container-site flex flex-col items-center justify-between gap-4 py-6 text-center sm:flex-row sm:text-left">
           <div>
             <p className="display text-xl sm:text-2xl">Ready to grow your property wealth?</p>
             <p className="mt-1 text-sm text-white/85">Let&apos;s talk about how we can help you achieve your property goals.</p>

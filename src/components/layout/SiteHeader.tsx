@@ -47,7 +47,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white shadow-[0_4px_18px_rgba(4,24,48,0.08)]">
       <div className="hidden bg-navy text-white md:block">
-        <div className="section-pad container-site flex h-9 items-center justify-between text-[0.68rem]">
+        <div className="section-pad container-site flex h-10 items-center justify-between text-sm">
           <div className="flex items-center gap-6 text-white/80">
             <a href="mailto:hello@landlordsjunction.co.zw" className="flex items-center gap-2 hover:text-orange">
               <Mail size={13} className="text-orange" />
@@ -71,7 +71,7 @@ export function SiteHeader() {
             alt={BRAND.name}
             width={220}
             height={132}
-            className="h-14 w-auto object-contain object-left lg:h-[4.6rem]"
+            className="h-16 w-auto object-contain object-left lg:h-[5rem]"
             priority
           />
         </Link>
@@ -83,7 +83,7 @@ export function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-2.5 py-3 text-[0.68rem] font-bold tracking-[0.06em] uppercase transition ${
+                className={`relative px-2.5 py-3 text-xs font-bold tracking-[0.05em] uppercase transition ${
                   active
                     ? "text-orange after:absolute after:right-3 after:bottom-0 after:left-3 after:h-0.5 after:bg-orange"
                     : "text-navy hover:text-orange"
@@ -98,7 +98,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             href="/contact"
-            className="btn-orange hidden !min-h-11 !rounded-sm !px-4 !text-[0.68rem] sm:inline-flex"
+            className="btn-orange hidden !min-h-11 !rounded-sm !px-4 !text-xs sm:inline-flex"
           >
             Request assessment
           </Link>

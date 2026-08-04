@@ -35,14 +35,14 @@ const stats: {
 
 export function TrustBridge() {
   return (
-    <section className="section-pad relative z-20 border-b border-line bg-white py-7 sm:py-9">
+    <section className="section-pad relative z-20 mt-8 border-b border-line bg-white py-8 sm:mt-10 sm:py-10 lg:mt-12">
       <div className="container-site grid grid-cols-2 gap-y-8 md:grid-cols-4">
         {stats.map((stat, index) => {
           const Icon = stat.icon;
           return (
             <div
               key={stat.title}
-              className={`flex items-center gap-3 px-3 sm:px-5 ${
+              className={`flex flex-col items-center gap-3 px-3 text-center sm:flex-row sm:px-5 sm:text-left ${
                 index > 0 ? "md:border-l md:border-line" : ""
               }`}
             >

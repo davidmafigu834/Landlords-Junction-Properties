@@ -28,14 +28,14 @@ export function WhyChooseUs() {
   return (
     <section className="section-pad border-b border-line bg-white py-12 sm:py-16">
       <div className="container-site grid gap-10 lg:grid-cols-[1.05fr_2fr] lg:items-center">
-        <div>
+        <div className="text-center lg:text-left">
           <p className="text-xs font-bold tracking-[0.18em] text-orange uppercase">
             Why choose us
           </p>
           <h2 className="display mt-1 text-3xl leading-tight text-navy sm:text-4xl">
             Integrity. Expertise. Results.
           </h2>
-          <p className="mt-4 max-w-md text-base leading-relaxed text-muted">
+          <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-muted lg:mx-0">
             We combine deep local knowledge, professional expertise and a client-first approach to
             deliver exceptional property outcomes.
           </p>

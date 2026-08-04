@@ -16,8 +16,8 @@ export function TestimonialBand() {
       </div>
 
       <div className="section-pad container-site relative flex min-h-56 items-center py-10 md:min-h-64">
-        <div className="max-w-2xl">
-          <div className="flex gap-4">
+        <div className="max-w-2xl text-center md:text-left">
+          <div className="flex flex-col items-center gap-4 md:flex-row md:items-start">
             <Quote size={38} fill="currentColor" className="shrink-0 text-orange" />
             <div>
               <blockquote className="display text-lg leading-relaxed sm:text-2xl">
@@ -27,7 +27,7 @@ export function TestimonialBand() {
               <p className="mt-4 text-xs font-semibold text-white/75">— Tinashe M., Property Seller</p>
             </div>
           </div>
-          <div className="mt-7 flex items-center gap-3 pl-14" aria-hidden>
+          <div className="mt-7 flex items-center justify-center gap-3 md:justify-start md:pl-14" aria-hidden>
             <span className="h-2 w-2 rounded-full bg-white/35" />
             <span className="h-2 w-2 rounded-full bg-orange" />
             <span className="h-2 w-2 rounded-full bg-white/35" />
