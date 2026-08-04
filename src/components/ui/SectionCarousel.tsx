@@ -36,22 +36,28 @@ export function SectionCarousel({ title, href, hrefLabel = "View all", links, ch
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="section-pad py-16 md:py-20">
+    <section className="section-pad py-12 sm:py-16 md:py-20">
       <div className="container-site">
-        <div className="mb-8 flex flex-wrap items-end gap-4 border-b border-line pb-4">
-          <h2 className="display shrink-0 text-3xl text-ink md:text-4xl">{title}</h2>
+        <div className="mb-6 flex flex-col gap-4 border-b border-line pb-4 sm:mb-8 sm:flex-row sm:flex-wrap sm:items-end">
+          <h2 className="display text-2xl text-ink sm:text-3xl md:text-4xl">{title}</h2>
           <div className="mx-4 hidden h-px flex-1 bg-line md:block" />
-          <div className="ml-auto flex items-center gap-4">
-            {links?.map((l) => (
-              <Link key={l.href} href={l.href} className="link-accent text-xs font-semibold tracking-wider uppercase">
-                {l.label}
-              </Link>
-            ))}
-            {href && (
-              <Link href={href} className="link-accent text-xs font-semibold tracking-wider uppercase">
-                {hrefLabel}
-              </Link>
-            )}
+          <div className="flex w-full flex-wrap items-center justify-between gap-3 sm:ml-auto sm:w-auto sm:justify-end sm:gap-4">
+            <div className="flex flex-wrap gap-x-4 gap-y-2">
+              {links?.map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="link-accent text-xs font-semibold tracking-wider uppercase"
+                >
+                  {l.label}
+                </Link>
+              ))}
+              {href && (
+                <Link href={href} className="link-accent text-xs font-semibold tracking-wider uppercase">
+                  {hrefLabel}
+                </Link>
+              )}
+            </div>
             <div className="flex gap-2">
               <button
                 type="button"
@@ -75,7 +81,7 @@ export function SectionCarousel({ title, href, hrefLabel = "View all", links, ch
           </div>
         </div>
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-6">{children}</div>
+          <div className="flex gap-4 sm:gap-6">{children}</div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getListingCounts } from "@/lib/data/queries";
+import { BRAND } from "@/lib/brand";
 
 export async function SiteFooter() {
   const counts = await getListingCounts();
@@ -8,10 +9,10 @@ export async function SiteFooter() {
   const lookingTo = [
     { href: "/properties?status=FOR_SALE", label: `Buy property (${counts.forSale})` },
     { href: "/properties?status=TO_LET", label: `Rent property (${counts.toLet})` },
-    { href: "/sell", label: "Sell / let your home" },
+    { href: "/sell", label: "Sell / let with stewardship" },
     { href: "/properties?onShow=1", label: `Properties on show (${counts.onShow})` },
     { href: "/contact", label: "Contact us" },
-    { href: "/sell", label: "Get a free market assessment" },
+    { href: "/sell", label: "Request a market assessment" },
   ];
 
   const searchProps = [
@@ -47,7 +48,7 @@ export async function SiteFooter() {
 
   return (
     <footer className="bg-navy text-white">
-      <div className="section-pad container-site grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-5">
+      <div className="section-pad container-site grid gap-10 py-12 sm:py-16 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-white/60 uppercase">
             Looking to
@@ -69,11 +70,11 @@ export async function SiteFooter() {
           </p>
           <ul className="space-y-2 text-sm text-white/85">
             {searchProps.map((item) => (
-              <li key={item.label} className="flex justify-between gap-4">
-                <Link href={item.href} className="transition hover:text-orange">
+              <li key={item.label} className="flex items-start justify-between gap-4">
+                <Link href={item.href} className="min-w-0 transition hover:text-orange">
                   {item.label}
                 </Link>
-                <span className="text-orange">{item.count}</span>
+                <span className="shrink-0 text-orange">{item.count}</span>
               </li>
             ))}
           </ul>
@@ -96,7 +97,7 @@ export async function SiteFooter() {
             </li>
             <li>
               <Link href="/contact" className="hover:text-orange">
-                Careers / Contact
+                Contact
               </Link>
             </li>
           </ul>
@@ -104,12 +105,12 @@ export async function SiteFooter() {
 
         <div>
           <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-white/60 uppercase">
-            Tools
+            Guidance
           </p>
           <ul className="space-y-2 text-sm text-white/85">
             <li>
               <Link href="/news" className="hover:text-orange">
-                News
+                Insights
               </Link>
             </li>
             <li>
@@ -119,7 +120,7 @@ export async function SiteFooter() {
             </li>
             <li>
               <Link href="/contact" className="hover:text-orange">
-                Property email alerts
+                Speak with an adviser
               </Link>
             </li>
           </ul>
@@ -128,16 +129,14 @@ export async function SiteFooter() {
         <div>
           <Image
             src="/logo.png"
-            alt="Landlords Junction Properties"
+            alt={BRAND.name}
             width={72}
             height={72}
             className="mb-4 h-16 w-16 object-contain"
           />
-          <p className="display text-lg leading-snug">Landlords Junction Properties</p>
-          <p className="mt-2 text-sm text-white/65 italic">
-            The confluence of buyers and sellers
-          </p>
-          <p className="mt-4 text-sm text-white/75">Bulawayo, Zimbabwe</p>
+          <p className="display text-lg leading-snug">{BRAND.name}</p>
+          <p className="mt-2 text-sm text-white/70">{BRAND.tagline}</p>
+          <p className="mt-4 text-sm text-white/75">{BRAND.location}</p>
         </div>
       </div>
 
@@ -154,7 +153,9 @@ export async function SiteFooter() {
               Agent Login
             </Link>
           </div>
-          <p>© {new Date().getFullYear()} Landlords Junction Properties</p>
+          <p>
+            © {new Date().getFullYear()} {BRAND.name}
+          </p>
         </div>
       </div>
     </footer>

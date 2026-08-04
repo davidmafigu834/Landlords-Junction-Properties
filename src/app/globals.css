@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
+  /* Deep blues, charcoal, white — permanence & trust. Accent from logo orange, used with restraint. */
   --navy: #0b1f3a;
-  --navy-deep: #071528;
-  --orange: #e85a17;
-  --orange-hot: #ff6b2c;
-  --ink: #121212;
-  --muted: #5c6570;
-  --line: #e4e7eb;
-  --paper: #f7f5f2;
+  --navy-deep: #061525;
+  --orange: #d45a1a;
+  --orange-hot: #e86a28;
+  --ink: #1a222d;
+  --muted: #5a6573;
+  --line: #e2e6eb;
+  --paper: #f3f5f7;
   --white: #ffffff;
   --background: var(--white);
   --foreground: var(--ink);
@@ -31,16 +32,18 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: clip;
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--orange) 35%, white);
+  background: color-mix(in oklab, var(--navy) 22%, white);
 }
 
 .section-pad {
@@ -60,9 +63,9 @@ body {
 .link-accent {
   color: var(--navy);
   text-decoration: underline;
-  text-decoration-color: var(--orange);
+  text-decoration-color: color-mix(in oklab, var(--orange) 70%, var(--navy));
   text-underline-offset: 0.28em;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1.5px;
 }
 
 .btn-primary {
@@ -77,11 +80,12 @@ body {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-size: 0.8rem;
+  min-height: 2.75rem;
   transition: background 180ms ease, transform 180ms ease;
 }
 
 .btn-primary:hover {
-  background: var(--orange);
+  background: color-mix(in oklab, var(--navy) 82%, var(--orange));
 }
 
 .btn-orange {
@@ -105,7 +109,7 @@ body {
 
 .badge {
   display: inline-block;
-  background: var(--orange);
+  background: var(--navy);
   color: white;
   font-size: 0.7rem;
   font-weight: 700;
@@ -125,12 +129,12 @@ body {
 
 .input:focus {
   border-color: var(--navy);
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--orange) 25%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--navy) 14%, transparent);
 }
 
 .carousel-btn {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 999px;
   border: 1px solid var(--line);
   display: inline-flex;
@@ -142,7 +146,7 @@ body {
 
 .carousel-btn:hover {
   border-color: var(--navy);
-  color: var(--orange);
+  color: var(--navy);
 }
 
 @keyframes rise-in {

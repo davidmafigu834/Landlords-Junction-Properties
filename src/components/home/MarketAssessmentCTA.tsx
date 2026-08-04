@@ -3,37 +3,39 @@ import { MapPin } from "lucide-react";
 
 export function MarketAssessmentCTA() {
   return (
-    <section className="relative overflow-hidden bg-[#dfe8df] py-20">
+    <section className="relative overflow-hidden bg-paper py-14 sm:py-20">
       <div
-        className="pointer-events-none absolute inset-0 opacity-40"
+        className="pointer-events-none absolute inset-0 opacity-50"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 40%, #9bb8a3 0, transparent 28%), radial-gradient(circle at 70% 50%, #a8c4b0 0, transparent 32%), radial-gradient(circle at 45% 70%, #8aab96 0, transparent 24%)",
+            "radial-gradient(ellipse at 15% 30%, color-mix(in oklab, #0b1f3a 12%, transparent) 0, transparent 42%), radial-gradient(ellipse at 85% 60%, color-mix(in oklab, #d45a1a 10%, transparent) 0, transparent 40%)",
         }}
       />
       <div className="section-pad relative container-site text-center">
-        <h2 className="display text-3xl text-ink md:text-5xl">Request a Market Assessment</h2>
-        <p className="mx-auto mt-3 max-w-xl text-muted">
-          Tell us your Bulawayo address and we&apos;ll prepare a grounded valuation for selling or letting.
+        <h2 className="display text-2xl text-ink sm:text-3xl md:text-5xl">
+          Request a market assessment
+        </h2>
+        <p className="mx-auto mt-3 max-w-xl text-sm text-muted sm:text-base">
+          Share your address. We prepare a clear, evidence-based assessment for selling or letting —
+          without pressure or inflated promises.
         </p>
         <form
           action="/sell"
-          className="mx-auto mt-8 flex w-full max-w-3xl flex-col gap-2 bg-white p-2 shadow-md sm:flex-row"
+          className="mx-auto mt-8 flex w-full max-w-3xl flex-col gap-2 border border-line bg-white p-2 sm:flex-row"
         >
-          <label className="relative flex flex-1 items-center">
+          <label className="relative flex min-h-11 flex-1 items-center">
             <MapPin className="absolute left-3 text-muted" size={16} />
-            <input
-              name="address"
-              className="input border-0 pl-9"
-              placeholder="Your address"
-            />
+            <input name="address" className="input min-h-11 border-0 pl-9" placeholder="Your address" />
           </label>
-          <button type="submit" className="btn-primary whitespace-nowrap">
-            Enter manually
+          <button type="submit" className="btn-primary min-h-11 w-full whitespace-nowrap sm:w-auto">
+            Continue
           </button>
         </form>
-        <Link href="/sell" className="link-accent mt-4 inline-block text-xs font-semibold tracking-wider uppercase">
-          Or start the full sell / let form
+        <Link
+          href="/sell"
+          className="link-accent mt-4 inline-block text-xs font-semibold tracking-wider uppercase"
+        >
+          Or complete the full sell / let form
         </Link>
       </div>
     </section>

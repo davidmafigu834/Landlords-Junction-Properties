@@ -15,7 +15,7 @@ export function LeadForm({
   type = "GENERAL",
   propertyId,
   agentId,
-  title = "Let us assist you",
+  title = "How may we help?",
   submitLabel = "Submit",
 }: Props) {
   const [message, setMessage] = useState<string | null>(null);
@@ -24,7 +24,7 @@ export function LeadForm({
 
   return (
     <div>
-      <h3 className="display text-2xl text-ink md:text-3xl">{title}</h3>
+      <h3 className="display text-xl text-ink sm:text-2xl md:text-3xl">{title}</h3>
       <form
         className="mt-6 space-y-3"
         action={(fd) => {
@@ -38,9 +38,9 @@ export function LeadForm({
         <input type="hidden" name="type" value={type} />
         {propertyId && <input type="hidden" name="propertyId" value={propertyId} />}
         {agentId && <input type="hidden" name="agentId" value={agentId} />}
-        <input className="input" name="name" placeholder="Name" required />
-        <input className="input" name="phone" placeholder="Contact number" />
-        <input className="input" name="email" type="email" placeholder="Email address" required />
+        <input className="input min-h-11" name="name" placeholder="Name" required />
+        <input className="input min-h-11" name="phone" placeholder="Contact number" />
+        <input className="input min-h-11" name="email" type="email" placeholder="Email address" required />
         <textarea className="input min-h-28" name="message" placeholder="Message" required />
         <p className="text-xs text-muted">
           By submitting, you agree to be contacted about your enquiry. See our{" "}
@@ -49,11 +49,15 @@ export function LeadForm({
           </a>
           .
         </p>
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
           {message && (
-            <p className={`text-sm ${ok ? "text-navy" : "text-orange"}`}>{message}</p>
+            <p className={`text-sm break-words ${ok ? "text-navy" : "text-orange"}`}>{message}</p>
           )}
-          <button type="submit" className="btn-primary ml-auto" disabled={pending}>
+          <button
+            type="submit"
+            className="btn-primary min-h-11 w-full sm:ml-auto sm:w-auto"
+            disabled={pending}
+          >
             {pending ? "Sending…" : submitLabel}
           </button>
         </div>

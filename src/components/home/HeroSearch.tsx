@@ -22,12 +22,12 @@ export function HeroSearch({ compact = false }: { compact?: boolean }) {
   return (
     <form
       onSubmit={onSubmit}
-      className={`grid w-full gap-2 bg-white/90 p-2 shadow-lg backdrop-blur md:grid-cols-[1fr_1fr_1.6fr_auto] ${
+      className={`grid w-full grid-cols-1 gap-2 bg-white/95 p-2 shadow-lg backdrop-blur sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1.6fr_auto] ${
         compact ? "" : "animate-rise delay-3"
       }`}
     >
       <select
-        className="input border-0 bg-transparent"
+        className="input min-h-11 border-0 bg-transparent"
         value={status}
         onChange={(e) => setStatus(e.target.value)}
         aria-label="Listing status"
@@ -36,7 +36,7 @@ export function HeroSearch({ compact = false }: { compact?: boolean }) {
         <option value="TO_LET">To Let</option>
       </select>
       <select
-        className="input border-0 bg-transparent"
+        className="input min-h-11 border-0 bg-transparent"
         value={type}
         onChange={(e) => setType(e.target.value)}
         aria-label="Property type"
@@ -48,16 +48,16 @@ export function HeroSearch({ compact = false }: { compact?: boolean }) {
         <option value="VACANT_LAND">Vacant Land</option>
         <option value="FARM">Farms</option>
       </select>
-      <label className="relative flex items-center">
+      <label className="relative flex min-h-11 items-center sm:col-span-2 lg:col-span-1">
         <MapPin className="pointer-events-none absolute left-3 text-muted" size={16} />
         <input
-          className="input border-0 bg-transparent pl-9"
-          placeholder="Search by area, suburb or keyword"
+          className="input min-h-11 border-0 bg-transparent pl-9"
+          placeholder="Area, suburb or keyword"
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />
       </label>
-      <button type="submit" className="btn-primary">
+      <button type="submit" className="btn-primary min-h-11 w-full sm:col-span-2 lg:col-span-1 lg:w-auto">
         <Search size={16} />
         Search
       </button>

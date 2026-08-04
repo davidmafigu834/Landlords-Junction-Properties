@@ -1,9 +1,13 @@
 # Landlords Junction Properties
 
-**Landlords Junction Properties** is a real estate agency based in Bulawayo, Zimbabwe.  
-Tagline: *The confluence of buyers and sellers.*
+**Landlords Junction Properties** is a property stewardship company based in Bulawayo, Zimbabwe.
 
-This repository is the company website and agent portal — a place for buyers, sellers, and tenants to browse listings, and for agents to manage properties online.
+**Tagline:** Trusted steward of property wealth  
+**Motto:** Steward property wealth with trust and discipline
+
+We protect and grow property wealth through disciplined advice, ethical execution, and accountable service — treating every property as a lasting asset, not inventory.
+
+This repository is the company website and agent portal.
 
 ## What it does
 
@@ -11,8 +15,8 @@ This repository is the company website and agent portal — a place for buyers, 
 - Browse homes, apartments, land, commercial property, and farms for sale or to let
 - Search by suburb, city, price, and property type across Bulawayo and beyond
 - Meet the agents and explore area guides
-- Read market news and tips
-- Enquire about a property, get in touch, or request a sale / market assessment
+- Read stewardship-minded market insights
+- Enquire about a property, get in touch, or request a market assessment
 
 **Agent & admin portal** (`/login`)
 - Agents sign in to add and update their listings
@@ -44,7 +48,7 @@ Without Supabase credentials, the public site still runs on built-in demo listin
 |------|---------|
 | `src/app` | Pages (home, properties, agents, areas, news, contact, sell, dashboard) |
 | `src/components` | UI building blocks |
-| `src/lib` | Data queries, auth helpers, Supabase clients |
+| `src/lib` | Brand constants, data queries, auth helpers, Supabase clients |
 | `supabase/` | Database migration and seed SQL |
 
 ## Scripts

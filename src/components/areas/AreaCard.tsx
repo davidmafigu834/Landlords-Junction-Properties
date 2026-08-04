@@ -35,7 +35,7 @@ export function AreaCard({
   ).length;
 
   return (
-    <article className="min-w-0 shrink-0 basis-[90%] sm:basis-[70%] lg:basis-[calc(50%-0.75rem)]">
+    <article className="min-w-0 w-full shrink-0 basis-[88%] sm:basis-[calc(70%-0.75rem)] lg:basis-[calc(50%-0.75rem)]">
       <Link href={`/areas/${area.slug}`} className="group relative block aspect-[16/10] overflow-hidden">
         <Image
           src={area.image_url}
@@ -45,7 +45,9 @@ export function AreaCard({
           sizes="(max-width:1024px) 90vw, 50vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/10 to-transparent" />
-        <h3 className="display absolute bottom-4 left-4 text-3xl text-white md:text-4xl">{area.name}</h3>
+        <h3 className="display absolute right-4 bottom-4 left-4 max-w-[90%] text-2xl text-white sm:text-3xl md:text-4xl">
+          {area.name}
+        </h3>
       </Link>
       <div className="mt-5 grid gap-6 md:grid-cols-[1.4fr_0.8fr]">
         <div>

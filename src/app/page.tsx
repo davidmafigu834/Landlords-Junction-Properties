@@ -22,25 +22,33 @@ export default async function HomePage() {
       getProperties(),
     ]);
 
-  const featured = featuredSale.length ? featuredSale : allProperties.filter((p) => p.status === "FOR_SALE");
-  const toLet = featuredLet.length ? featuredLet : allProperties.filter((p) => p.status === "TO_LET");
+  const featured = featuredSale.length
+    ? featuredSale
+    : allProperties.filter((p) => p.status === "FOR_SALE");
+  const toLet = featuredLet.length
+    ? featuredLet
+    : allProperties.filter((p) => p.status === "TO_LET");
 
   return (
     <>
       <HomeHero />
 
-      <section className="section-pad border-b border-line py-14 md:py-16">
-        <div className="container-site grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-end">
-          <h2 className="display text-3xl text-ink md:text-5xl">
-            Welcome to Landlords Junction Properties
+      <section className="section-pad border-b border-line py-10 sm:py-14 md:py-16">
+        <div className="container-site grid gap-6 sm:gap-8 md:grid-cols-[1.1fr_1fr] md:items-end">
+          <h2 className="display text-2xl text-ink sm:text-3xl md:text-5xl">
+            Where stewardship meets property
           </h2>
           <div>
-            <p className="text-muted">
-              Ready to find your next home — or place one on the market with clarity? We list,
-              advise, and negotiate across Bulawayo with suburb-level expertise.
+            <p className="text-sm text-muted sm:text-base">
+              Property in Zimbabwe is rarely just property — it is family security, investment
+              discipline, and legacy. We advise clearly, act ethically, and manage every asset as if
+              its value and reputation were our own.
             </p>
-            <Link href="/contact" className="link-accent mt-4 inline-block text-xs font-semibold tracking-wider uppercase">
-              More about us
+            <Link
+              href="/contact"
+              className="link-accent mt-4 inline-block text-xs font-semibold tracking-wider uppercase"
+            >
+              Speak with us
             </Link>
           </div>
         </div>
@@ -84,7 +92,7 @@ export default async function HomePage() {
         hrefLabel="View all"
         links={[
           { href: "/agents", label: "Agents" },
-          { href: "/contact", label: "Careers" },
+          { href: "/contact", label: "Contact" },
         ]}
       >
         {agents.map((agent) => (
@@ -100,7 +108,7 @@ export default async function HomePage() {
         </SectionCarousel>
       )}
 
-      <SectionCarousel title="The Know" href="/news" hrefLabel="View all news">
+      <SectionCarousel title="Insights" href="/news" hrefLabel="View all">
         {posts.map((post) => (
           <NewsCard key={post.id} post={post} />
         ))}

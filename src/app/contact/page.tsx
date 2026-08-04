@@ -1,26 +1,30 @@
 import { LeadForm } from "@/components/forms/LeadForm";
 import type { Metadata } from "next";
+import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = { title: "Contact" };
 
 export default function ContactPage() {
   return (
-    <div className="section-pad container-site grid gap-12 py-14 lg:grid-cols-2">
-      <div>
-        <h1 className="display text-4xl text-ink md:text-5xl">Contact us</h1>
-        <p className="mt-4 max-w-md text-muted">
-          Visit or reach the Landlords Junction Properties team in Bulawayo. We&apos;re here for
-          buyers, sellers, landlords, and tenants.
+    <div className="section-pad container-site grid gap-10 py-10 sm:gap-12 sm:py-14 lg:grid-cols-2">
+      <div className="min-w-0">
+        <h1 className="display text-3xl text-ink sm:text-4xl md:text-5xl">Contact us</h1>
+        <p className="mt-4 max-w-md text-sm text-muted sm:text-base">
+          Reach {BRAND.name} in {BRAND.location}. We help owners, investors, buyers, and tenants make
+          informed property decisions with clear next steps and prompt acknowledgement.
         </p>
         <dl className="mt-8 space-y-4 text-sm">
           <div>
             <dt className="font-semibold text-ink">Office</dt>
-            <dd className="text-muted">Bulawayo, Zimbabwe</dd>
+            <dd className="text-muted">{BRAND.location}</dd>
           </div>
           <div>
             <dt className="font-semibold text-ink">Email</dt>
             <dd>
-              <a href="mailto:hello@landlordsjunction.co.zw" className="text-orange">
+              <a
+                href="mailto:hello@landlordsjunction.co.zw"
+                className="break-all text-navy underline"
+              >
                 hello@landlordsjunction.co.zw
               </a>
             </dd>
@@ -30,9 +34,10 @@ export default function ContactPage() {
             <dd className="text-muted">+263 29 XXX XXXX</dd>
           </div>
         </dl>
+        <p className="mt-8 max-w-md text-sm text-muted italic">{BRAND.motto}</p>
       </div>
-      <div className="bg-paper p-6 md:p-8">
-        <LeadForm type="GENERAL" title="Send a message" />
+      <div className="min-w-0 border border-line bg-paper p-5 sm:p-6 md:p-8">
+        <LeadForm type="GENERAL" title="Send a message" submitLabel="Send message" />
       </div>
     </div>
   );

@@ -26,22 +26,26 @@ export default async function AreaDetailPage({ params }: Props) {
 
   return (
     <div>
-      <div className="relative h-[42vh] min-h-72">
-        <Image src={area.image_url} alt={area.name} fill className="object-cover" priority />
+      <div className="relative h-[38vh] min-h-64 sm:h-[42vh] sm:min-h-72">
+        <Image src={area.image_url} alt={area.name} fill className="object-cover" priority sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-navy/20" />
-        <div className="section-pad absolute inset-x-0 bottom-0 container-site pb-10">
-          <h1 className="display text-4xl text-white md:text-6xl">{area.name}</h1>
+        <div className="section-pad absolute inset-x-0 bottom-0 container-site pb-8 sm:pb-10">
+          <h1 className="display text-3xl text-white sm:text-4xl md:text-6xl">{area.name}</h1>
         </div>
       </div>
-      <div className="section-pad container-site py-12">
-        <p className="max-w-3xl text-lg leading-relaxed text-muted">{area.description}</p>
-        <h2 className="display mt-12 text-3xl text-ink">Properties in {area.name}</h2>
+      <div className="section-pad container-site py-10 sm:py-12">
+        <p className="max-w-3xl text-base leading-relaxed text-muted sm:text-lg">{area.description}</p>
+        <h2 className="display mt-10 text-2xl text-ink sm:mt-12 sm:text-3xl">
+          Properties in {area.name}
+        </h2>
         {properties.length === 0 ? (
           <p className="mt-4 text-muted">No listings in this area right now.</p>
         ) : (
-          <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mt-6 grid gap-6 sm:mt-8 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 xl:grid-cols-4">
             {properties.map((p) => (
-              <PropertyCard key={p.id} property={p} />
+              <div key={p.id} className="min-w-0">
+                <PropertyCard property={p} />
+              </div>
             ))}
           </div>
         )}

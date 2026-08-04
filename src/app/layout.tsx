@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville, Outfit } from "next/font/google";
+import { Libre_Baskerville, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { BRAND } from "@/lib/brand";
 
 const display = Libre_Baskerville({
   variable: "--font-display",
@@ -10,18 +11,17 @@ const display = Libre_Baskerville({
   weight: ["400", "700"],
 });
 
-const body = Outfit({
+const body = Source_Sans_3({
   variable: "--font-body",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Landlords Junction Properties | Bulawayo Real Estate",
-    template: "%s | Landlords Junction Properties",
+    default: `${BRAND.name} | Property Stewardship in Bulawayo`,
+    template: `%s | ${BRAND.name}`,
   },
-  description:
-    "Buy, rent, and sell property in Bulawayo with Landlords Junction Properties — the confluence of buyers and sellers.",
+  description: BRAND.positioning,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

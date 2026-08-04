@@ -39,10 +39,10 @@ export default async function PropertiesPage({
 
   return (
     <div>
-      <div className="bg-navy px-0 pt-10 pb-8 text-white">
+      <div className="bg-navy px-0 pt-8 pb-8 text-white sm:pt-10">
         <div className="section-pad container-site">
-          <h1 className="display text-4xl md:text-5xl">Find your property</h1>
-          <p className="mt-2 max-w-2xl text-white/75">
+          <h1 className="display text-3xl sm:text-4xl md:text-5xl">Find your property</h1>
+          <p className="mt-2 max-w-2xl text-sm text-white/75 sm:text-base">
             Search listings for sale and to let across Bulawayo and beyond.
           </p>
           <div className="mt-6">
@@ -51,8 +51,8 @@ export default async function PropertiesPage({
         </div>
       </div>
 
-      <div className="section-pad container-site py-10">
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+      <div className="section-pad container-site py-8 sm:py-10">
+        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
           <p className="text-sm text-muted">
             {properties.length} propert{properties.length === 1 ? "y" : "ies"} found
           </p>
@@ -72,7 +72,7 @@ export default async function PropertiesPage({
         {properties.length === 0 ? (
           <p className="py-20 text-center text-muted">No listings match these filters yet.</p>
         ) : (
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 xl:grid-cols-4">
             {properties.map((p) => (
               <div key={p.id} className="min-w-0">
                 <PropertyCard property={p} />

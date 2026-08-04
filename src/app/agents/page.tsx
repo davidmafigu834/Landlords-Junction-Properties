@@ -8,14 +8,15 @@ export default async function AgentsPage() {
   const agents = await getAgents();
 
   return (
-    <div className="section-pad container-site py-14">
-      <h1 className="display text-4xl text-ink md:text-5xl">Meet the Team</h1>
-      <p className="mt-3 max-w-2xl text-muted">
-        Local agents with Bulawayo market fluency — ready to buy, sell, or let with you.
+    <div className="section-pad container-site py-10 sm:py-14">
+      <h1 className="display text-3xl text-ink sm:text-4xl md:text-5xl">Meet the Team</h1>
+      <p className="mt-3 max-w-2xl text-sm text-muted sm:text-base">
+        Calm, precise advisers who protect value first — ready to guide buying, selling, and letting
+        with clarity and care.
       </p>
-      <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-8 grid gap-6 sm:mt-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 xl:grid-cols-4">
         {agents.map((agent) => (
-          <div key={agent.id}>
+          <div key={agent.id} className="min-w-0">
             <AgentCard agent={agent} />
           </div>
         ))}
