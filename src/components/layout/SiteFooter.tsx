@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { getListingCounts } from "@/lib/data/queries";
 import { BRAND } from "@/lib/brand";
 
@@ -48,6 +49,18 @@ export async function SiteFooter() {
 
   return (
     <footer className="bg-navy text-white">
+      <div className="bg-orange">
+        <div className="section-pad container-site flex flex-col items-start justify-between gap-4 py-6 sm:flex-row sm:items-center">
+          <div>
+            <p className="display text-xl sm:text-2xl">Ready to grow your property wealth?</p>
+            <p className="mt-1 text-sm text-white/85">Let&apos;s talk about how we can help you achieve your property goals.</p>
+          </div>
+          <Link href="/contact" className="inline-flex min-h-11 items-center gap-2 bg-navy px-5 text-xs font-bold tracking-wider uppercase">
+            Speak with our team
+            <ArrowRight size={15} />
+          </Link>
+        </div>
+      </div>
       <div className="section-pad container-site grid gap-10 py-12 sm:py-16 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-white/60 uppercase">
@@ -135,6 +148,12 @@ export async function SiteFooter() {
             className="mb-4 h-auto w-44 object-contain object-left sm:w-52"
           />
           <p className="mt-2 text-sm text-white/75">{BRAND.location}</p>
+          <div className="mt-4 space-y-2 text-xs text-white/65">
+            <p className="flex items-center gap-2"><MapPin size={13} className="text-orange" />{BRAND.location}</p>
+            <a href="mailto:hello@landlordsjunction.co.zw" className="flex items-center gap-2 hover:text-orange">
+              <Mail size={13} className="text-orange" />hello@landlordsjunction.co.zw
+            </a>
+          </div>
         </div>
       </div>
 

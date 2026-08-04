@@ -4,21 +4,23 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Mail, MapPin, Menu, UserRound, X } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/properties", label: "Properties" },
+  { href: "/properties?status=FOR_SALE", label: "Buy" },
+  { href: "/properties?status=TO_LET", label: "Rent" },
   { href: "/sell", label: "Services" },
+  { href: "/properties?type=DEVELOPMENT", label: "Developments" },
   { href: "/agents", label: "About Us" },
+  { href: "/news", label: "Resources" },
   { href: "/contact", label: "Contact Us" },
 ];
 
 const mobileLinks = [
   ...links,
   { href: "/areas", label: "Areas" },
-  { href: "/news", label: "Insights" },
   { href: "/login", label: "Agent Login" },
 ];
 
@@ -43,30 +45,48 @@ export function SiteHeader() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 bg-navy text-white">
-      <div className="section-pad container-site flex h-16 items-center justify-between gap-4 md:h-[4.5rem]">
+    <header className="sticky top-0 z-50 border-b border-line bg-white shadow-[0_4px_18px_rgba(4,24,48,0.08)]">
+      <div className="hidden bg-navy text-white md:block">
+        <div className="section-pad container-site flex h-9 items-center justify-between text-[0.68rem]">
+          <div className="flex items-center gap-6 text-white/80">
+            <a href="mailto:hello@landlordsjunction.co.zw" className="flex items-center gap-2 hover:text-orange">
+              <Mail size={13} className="text-orange" />
+              hello@landlordsjunction.co.zw
+            </a>
+            <span className="flex items-center gap-2">
+              <MapPin size={13} className="text-orange" />
+              {BRAND.location}
+            </span>
+          </div>
+          <Link href="/login" className="flex items-center gap-2 text-white/80 hover:text-orange">
+            <UserRound size={13} />
+            Agent login
+          </Link>
+        </div>
+      </div>
+      <div className="section-pad container-site flex h-[4.6rem] items-center justify-between gap-4 lg:h-[5.35rem]">
         <Link href="/" className="flex min-w-0 items-center">
           <Image
             src="/logo.png"
             alt={BRAND.name}
             width={220}
             height={132}
-            className="h-11 w-auto object-contain object-left md:h-14"
+            className="h-14 w-auto object-contain object-left lg:h-[4.6rem]"
             priority
           />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-0 xl:flex" aria-label="Primary">
           {links.map((link) => {
             const active = linkIsActive(pathname, link.href);
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-2 text-[0.7rem] font-semibold tracking-[0.16em] uppercase transition ${
+                className={`relative px-2.5 py-3 text-[0.68rem] font-bold tracking-[0.06em] uppercase transition ${
                   active
-                    ? "text-white underline decoration-orange decoration-2 underline-offset-[10px]"
-                    : "text-white/80 hover:text-white"
+                    ? "text-orange after:absolute after:right-3 after:bottom-0 after:left-3 after:h-0.5 after:bg-orange"
+                    : "text-navy hover:text-orange"
                 }`}
               >
                 {link.label}
@@ -78,13 +98,13 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             href="/contact"
-            className="btn-orange hidden !min-h-10 !px-4 !text-[0.7rem] sm:inline-flex"
+            className="btn-orange hidden !min-h-11 !rounded-sm !px-4 !text-[0.68rem] sm:inline-flex"
           >
-            Speak With Us
+            Request assessment
           </Link>
           <button
             type="button"
-            className="inline-flex min-h-11 min-w-11 items-center justify-center lg:hidden"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center text-navy xl:hidden"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
           >

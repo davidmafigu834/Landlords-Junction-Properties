@@ -27,6 +27,18 @@ export default async function PropertiesPage({
   const onShow = params.onShow === "1" || params.onShow === "true";
   const city = typeof params.city === "string" ? params.city : undefined;
   const suburb = typeof params.suburb === "string" ? params.suburb : undefined;
+  const minPrice =
+    typeof params.minPrice === "string" && Number.isFinite(Number(params.minPrice))
+      ? Number(params.minPrice)
+      : undefined;
+  const maxPrice =
+    typeof params.maxPrice === "string" && Number.isFinite(Number(params.maxPrice))
+      ? Number(params.maxPrice)
+      : undefined;
+  const beds =
+    typeof params.beds === "string" && Number.isFinite(Number(params.beds))
+      ? Number(params.beds)
+      : undefined;
 
   const properties = await getProperties({
     status: status === "ALL" ? undefined : status,
@@ -35,6 +47,9 @@ export default async function PropertiesPage({
     onShow: onShow || undefined,
     city,
     suburb,
+    minPrice,
+    maxPrice,
+    beds,
   });
 
   return (

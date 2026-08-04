@@ -2,15 +2,15 @@
 
 :root {
   /* Brand: navy blue + orange (logo) */
-  --navy: #0b1f3a;
-  --navy-deep: #061525;
-  --navy-mid: #143456;
-  --orange: #e85a17;
-  --orange-hot: #ff6b2c;
-  --ink: #0b1f3a;
-  --muted: #5c6570;
-  --line: #e4e7eb;
-  --paper: #f7f8fa;
+  --navy: #061d3b;
+  --navy-deep: #03142b;
+  --navy-mid: #0d3158;
+  --orange: #ee5b0c;
+  --orange-hot: #ff721f;
+  --ink: #071d37;
+  --muted: #626b75;
+  --line: #e5e8ec;
+  --paper: #f7f7f5;
   --white: #ffffff;
   --background: var(--white);
   --foreground: var(--ink);
@@ -54,7 +54,7 @@ body {
 }
 
 .container-site {
-  width: min(1200px, 100%);
+  width: min(1280px, 100%);
   margin-inline: auto;
 }
 
@@ -269,6 +269,11 @@ body {
 .input:focus {
   border-color: var(--navy);
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--orange) 22%, transparent);
+}
+
+.input option {
+  color: var(--ink);
+  background: white;
 }
 
 .carousel-btn {

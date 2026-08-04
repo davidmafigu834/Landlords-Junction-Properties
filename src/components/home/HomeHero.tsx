@@ -1,12 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, CalendarDays, Search } from "lucide-react";
 import { HERO_IMAGE } from "@/lib/data/seed";
-import { BRAND } from "@/lib/brand";
 import { HeroSearch } from "./HeroSearch";
 
 export function HomeHero() {
   return (
-    <section className="relative bg-white">
-      <div className="relative flex min-h-[calc(100svh-4rem)] flex-col overflow-hidden bg-navy text-white md:min-h-[calc(100svh-4.5rem)]">
+    <section className="relative bg-white pb-72 sm:pb-64 md:pb-48 lg:pb-24">
+      <div className="relative min-h-[34rem] bg-navy text-white sm:min-h-[38rem] lg:min-h-[41rem]">
         <Image
           src={HERO_IMAGE}
           alt="Well-managed residential property in Bulawayo"
@@ -15,33 +16,39 @@ export function HomeHero() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/55 via-navy/45 to-navy/88" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/45 via-transparent to-navy/25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy/70 to-navy/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/45 via-transparent to-navy/15" />
 
-        <div className="section-pad relative flex flex-1 flex-col items-center justify-center px-4 pt-6 pb-4 text-center sm:pt-8 md:pt-10">
+        <div className="section-pad container-site relative z-10 flex min-h-[34rem] items-center pb-20 sm:min-h-[38rem] lg:min-h-[41rem] lg:pb-28">
           <div className="w-full max-w-3xl">
-            <div className="animate-rise mb-3 flex flex-col items-center sm:mb-4 md:mb-5">
-              <Image
-                src="/logo.png"
-                alt={BRAND.name}
-                width={420}
-                height={252}
-                className="h-auto w-[min(72vw,14.5rem)] object-contain drop-shadow-lg sm:w-[min(60vw,17rem)] md:w-[19rem]"
-                priority
-              />
-            </div>
-            <h1 className="display animate-rise delay-1 mx-auto max-w-2xl text-[1.85rem] leading-[1.12] sm:text-4xl md:text-5xl">
-              Property care with <span className="text-orange">discipline</span>
+            <p className="animate-rise mb-4 flex items-center gap-3 text-[0.7rem] font-bold tracking-[0.2em] text-orange uppercase">
+              <span className="h-px w-9 bg-orange" />
+              Trusted property stewardship
+            </p>
+            <h1 className="display animate-rise delay-1 max-w-3xl text-[2.35rem] leading-[1.08] sm:text-5xl lg:text-[4.3rem]">
+              Protecting & growing
+              <span className="block text-orange">property wealth</span>
             </h1>
-            <p className="animate-rise delay-2 mx-auto mt-3 max-w-xl text-[0.95rem] leading-relaxed text-white/90 sm:mt-3.5 sm:text-base md:text-lg">
+            <p className="animate-rise delay-2 mt-5 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base lg:text-lg">
               We protect and grow property wealth through trusted advice, ethical execution, and
               accountable service across Bulawayo.
             </p>
+            <div className="animate-rise delay-3 mt-7 flex flex-col gap-3 sm:flex-row">
+              <Link href="/properties" className="btn-orange !rounded-sm">
+                <Search size={16} />
+                Search properties
+              </Link>
+              <Link href="/contact" className="btn-ghost-light !rounded-sm">
+                <CalendarDays size={16} />
+                Book a consultation
+                <ArrowRight size={14} />
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="section-pad relative z-30 w-full pb-5 sm:pb-6 md:pb-8">
-          <div className="container-site max-w-4xl">
+        <div className="section-pad absolute right-0 bottom-0 left-0 z-30 translate-y-[72%] sm:translate-y-[58%] lg:translate-y-1/2">
+          <div className="container-site">
             <HeroSearch />
           </div>
         </div>

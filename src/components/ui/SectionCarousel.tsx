@@ -12,6 +12,7 @@ type Props = {
   hrefLabel?: string;
   links?: { href: string; label: string }[];
   children: ReactNode;
+  tone?: "light" | "navy";
 };
 
 export function SectionCarousel({
@@ -21,6 +22,7 @@ export function SectionCarousel({
   hrefLabel = "View all",
   links,
   children,
+  tone = "light",
 }: Props) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
@@ -44,31 +46,31 @@ export function SectionCarousel({
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="section-pad py-12 sm:py-16 md:py-20">
+    <section className={`section-pad py-12 sm:py-16 md:py-20 ${tone === "navy" ? "bg-navy text-white" : "bg-white"}`}>
       <div className="container-site">
-        <div className="mb-6 flex flex-col gap-4 border-b border-line pb-4 sm:mb-8 sm:flex-row sm:flex-wrap sm:items-end">
+        <div className={`mb-6 flex flex-col gap-4 border-b pb-4 sm:mb-8 sm:flex-row sm:flex-wrap sm:items-end ${tone === "navy" ? "border-white/15" : "border-line"}`}>
           <div>
             {eyebrow && (
               <p className="mb-1 text-[0.7rem] font-semibold tracking-[0.18em] text-orange uppercase">
                 {eyebrow}
               </p>
             )}
-            <h2 className="display text-2xl text-ink sm:text-3xl md:text-4xl">{title}</h2>
+            <h2 className={`display text-2xl sm:text-3xl md:text-4xl ${tone === "navy" ? "text-white" : "text-ink"}`}>{title}</h2>
           </div>
-          <div className="mx-4 hidden h-px flex-1 bg-line md:block" />
+          <div className={`mx-4 hidden h-px flex-1 md:block ${tone === "navy" ? "bg-white/15" : "bg-line"}`} />
           <div className="flex w-full flex-wrap items-center justify-between gap-3 sm:ml-auto sm:w-auto sm:justify-end sm:gap-4">
             <div className="flex flex-wrap gap-x-4 gap-y-2">
               {links?.map((l) => (
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="link-accent text-xs font-semibold tracking-wider uppercase"
+                  className={`text-xs font-semibold tracking-wider uppercase ${tone === "navy" ? "text-white hover:text-orange" : "link-accent"}`}
                 >
                   {l.label}
                 </Link>
               ))}
               {href && (
-                <Link href={href} className="link-accent text-xs font-semibold tracking-wider uppercase">
+                <Link href={href} className={`text-xs font-semibold tracking-wider uppercase ${tone === "navy" ? "text-white hover:text-orange" : "link-accent"}`}>
                   {hrefLabel}
                 </Link>
               )}
