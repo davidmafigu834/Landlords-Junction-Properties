@@ -49,9 +49,13 @@ export function HeroSearch({ compact = false }: { compact?: boolean }) {
         <option value="FARM">Farms</option>
       </select>
       <label className="relative flex min-h-11 items-center sm:col-span-2 lg:col-span-1">
-        <MapPin className="pointer-events-none absolute left-3 text-muted" size={16} />
+        <MapPin
+          className="pointer-events-none absolute top-1/2 left-3 z-10 -translate-y-1/2 text-muted"
+          size={16}
+          aria-hidden
+        />
         <input
-          className="input min-h-11 border-0 bg-transparent pl-9"
+          className="input min-h-11 border-0 bg-transparent !pl-10"
           placeholder="Area, suburb or keyword"
           value={q}
           onChange={(e) => setQ(e.target.value)}

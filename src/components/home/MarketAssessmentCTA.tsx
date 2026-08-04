@@ -18,8 +18,16 @@ export function MarketAssessmentCTA() {
           className="mx-auto mt-8 flex w-full max-w-3xl flex-col gap-2 border border-line bg-white p-2 sm:flex-row"
         >
           <label className="relative flex min-h-11 flex-1 items-center">
-            <MapPin className="absolute left-3 text-orange" size={16} />
-            <input name="address" className="input min-h-11 border-0 pl-9" placeholder="Your address" />
+            <MapPin
+              className="pointer-events-none absolute top-1/2 left-3 z-10 -translate-y-1/2 text-orange"
+              size={16}
+              aria-hidden
+            />
+            <input
+              name="address"
+              className="input min-h-11 border-0 !pl-10"
+              placeholder="Your address"
+            />
           </label>
           <button type="submit" className="btn-orange min-h-11 w-full whitespace-nowrap sm:w-auto">
             Continue
