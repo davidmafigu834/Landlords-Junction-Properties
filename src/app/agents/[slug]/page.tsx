@@ -38,7 +38,7 @@ export default async function AgentProfilePage({ params }: Props) {
           <h1 className="display text-3xl text-ink sm:text-4xl md:text-5xl">{agent.name}</h1>
           <p className="mt-2 text-base text-muted sm:text-lg">{agent.title}</p>
           {agent.phone && (
-            <a href={`tel:${agent.phone}`} className="mt-2 block break-all text-orange">
+            <a href={`tel:${agent.phone}`} className="link-accent mt-2 block break-all">
               {agent.phone}
             </a>
           )}

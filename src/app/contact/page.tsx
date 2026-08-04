@@ -23,7 +23,7 @@ export default function ContactPage() {
             <dd>
               <a
                 href="mailto:hello@landlordsjunction.co.zw"
-                className="break-all text-navy underline"
+                className="link-accent break-all"
               >
                 hello@landlordsjunction.co.zw
               </a>

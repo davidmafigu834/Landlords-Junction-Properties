@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  /* Deep blues, charcoal, white — permanence & trust. Accent from logo orange, used with restraint. */
+  /* Brand: navy blue + orange (logo) */
   --navy: #0b1f3a;
   --navy-deep: #061525;
-  --orange: #d45a1a;
-  --orange-hot: #e86a28;
-  --ink: #1a222d;
-  --muted: #5a6573;
-  --line: #e2e6eb;
-  --paper: #f3f5f7;
+  --navy-mid: #143456;
+  --orange: #e85a17;
+  --orange-hot: #ff6b2c;
+  --ink: #0b1f3a;
+  --muted: #5c6570;
+  --line: #e4e7eb;
+  --paper: #f7f8fa;
   --white: #ffffff;
   --background: var(--white);
   --foreground: var(--ink);
@@ -20,6 +21,7 @@
   --color-foreground: var(--foreground);
   --color-navy: var(--navy);
   --color-navy-deep: var(--navy-deep);
+  --color-navy-mid: var(--navy-mid);
   --color-orange: var(--orange);
   --color-orange-hot: var(--orange-hot);
   --color-ink: var(--ink);
@@ -43,7 +45,8 @@ body {
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--navy) 22%, white);
+  background: color-mix(in oklab, var(--orange) 32%, white);
+  color: var(--navy);
 }
 
 .section-pad {
@@ -60,12 +63,19 @@ body {
   letter-spacing: -0.02em;
 }
 
+/* Navy text, orange underline — brand signature */
 .link-accent {
   color: var(--navy);
   text-decoration: underline;
-  text-decoration-color: color-mix(in oklab, var(--orange) 70%, var(--navy));
-  text-underline-offset: 0.28em;
-  text-decoration-thickness: 1.5px;
+  text-decoration-color: var(--orange);
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 2px;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.link-accent:hover {
+  color: var(--orange);
+  text-decoration-color: var(--orange);
 }
 
 .btn-primary {
@@ -85,7 +95,7 @@ body {
 }
 
 .btn-primary:hover {
-  background: color-mix(in oklab, var(--navy) 82%, var(--orange));
+  background: var(--orange);
 }
 
 .btn-orange {
@@ -100,6 +110,7 @@ body {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-size: 0.8rem;
+  min-height: 2.75rem;
   transition: background 180ms ease;
 }
 
@@ -109,7 +120,7 @@ body {
 
 .badge {
   display: inline-block;
-  background: var(--navy);
+  background: var(--orange);
   color: white;
   font-size: 0.7rem;
   font-weight: 700;
@@ -129,7 +140,7 @@ body {
 
 .input:focus {
   border-color: var(--navy);
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--navy) 14%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--orange) 22%, transparent);
 }
 
 .carousel-btn {
@@ -141,12 +152,13 @@ body {
   align-items: center;
   justify-content: center;
   background: white;
-  transition: border-color 160ms ease, color 160ms ease;
+  color: var(--navy);
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
 }
 
 .carousel-btn:hover {
-  border-color: var(--navy);
-  color: var(--navy);
+  border-color: var(--orange);
+  color: var(--orange);
 }
 
 @keyframes rise-in {

@@ -33,7 +33,7 @@ export function WhySellSection() {
           <h2 className="display text-2xl sm:text-3xl md:text-4xl">
             Why entrust your property to us?
           </h2>
-          <span className="hidden text-xs tracking-[0.18em] text-white/55 uppercase lg:block">
+          <span className="hidden text-xs tracking-[0.18em] text-orange uppercase lg:block">
             Stewardship
           </span>
         </div>

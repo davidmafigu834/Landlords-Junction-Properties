@@ -29,7 +29,9 @@ export function LifestyleGrid() {
               <div className="flex min-w-0 flex-col justify-center py-1">
                 <h3 className="font-semibold text-ink">{item.title}</h3>
                 <p className="mt-1 text-sm text-muted">{item.description}</p>
-                <span className="mt-3 text-sm font-semibold text-navy">View Listings</span>
+                <span className="mt-3 text-sm font-semibold text-navy underline decoration-orange decoration-2 underline-offset-4">
+                  View Listings
+                </span>
               </div>
             </Link>
           ))}

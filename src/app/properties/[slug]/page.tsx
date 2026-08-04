@@ -84,7 +84,7 @@ export default async function PropertyDetailPage({ params }: Props) {
                   <p className="font-semibold text-ink">{property.agent.name}</p>
                   <p className="text-sm text-muted">{property.agent.title}</p>
                   {property.agent.phone && (
-                    <a href={`tel:${property.agent.phone}`} className="text-sm break-all text-orange">
+                    <a href={`tel:${property.agent.phone}`} className="link-accent text-sm break-all">
                       {property.agent.phone}
                     </a>
                   )}

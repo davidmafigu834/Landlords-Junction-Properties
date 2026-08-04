@@ -44,7 +44,7 @@ export function LeadForm({
         <textarea className="input min-h-28" name="message" placeholder="Message" required />
         <p className="text-xs text-muted">
           By submitting, you agree to be contacted about your enquiry. See our{" "}
-          <a href="/privacy" className="text-orange underline">
+          <a href="/privacy" className="link-accent text-xs font-semibold">
             Privacy Policy
           </a>
           .

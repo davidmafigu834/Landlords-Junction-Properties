@@ -44,7 +44,7 @@ export function AreaCard({
           className="object-cover transition duration-700 group-hover:scale-105"
           sizes="(max-width:1024px) 90vw, 50vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/25 to-transparent" />
         <h3 className="display absolute right-4 bottom-4 left-4 max-w-[90%] text-2xl text-white sm:text-3xl md:text-4xl">
           {area.name}
         </h3>

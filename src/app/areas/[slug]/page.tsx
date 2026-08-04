@@ -28,9 +28,11 @@ export default async function AreaDetailPage({ params }: Props) {
     <div>
       <div className="relative h-[38vh] min-h-64 sm:h-[42vh] sm:min-h-72">
         <Image src={area.image_url} alt={area.name} fill className="object-cover" priority sizes="100vw" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-navy/20" />
+        <div className="absolute inset-0 bg-navy/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy/40 to-transparent" />
         <div className="section-pad absolute inset-x-0 bottom-0 container-site pb-8 sm:pb-10">
           <h1 className="display text-3xl text-white sm:text-4xl md:text-6xl">{area.name}</h1>
+          <div className="mt-3 h-0.5 w-14 bg-orange" aria-hidden />
         </div>
       </div>
       <div className="section-pad container-site py-10 sm:py-12">

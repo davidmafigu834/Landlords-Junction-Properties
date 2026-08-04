@@ -35,7 +35,7 @@ export default async function HomePage() {
 
       <section className="section-pad border-b border-line py-10 sm:py-14 md:py-16">
         <div className="container-site grid gap-6 sm:gap-8 md:grid-cols-[1.1fr_1fr] md:items-end">
-          <h2 className="display text-2xl text-ink sm:text-3xl md:text-5xl">
+          <h2 className="display text-2xl text-navy sm:text-3xl md:text-5xl">
             Where stewardship meets property
           </h2>
           <div>
