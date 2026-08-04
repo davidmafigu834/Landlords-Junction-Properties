@@ -1,0 +1,86 @@
+import { PropertyCard } from "@/components/property/PropertyCard";
+import { HeroSearch } from "@/components/home/HeroSearch";
+import { getProperties } from "@/lib/data/queries";
+import type { PropertyStatus, PropertyType } from "@/lib/data/types";
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Properties",
+};
+
+type SearchParams = Promise<Record<string, string | string[] | undefined>>;
+
+export default async function PropertiesPage({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const params = await searchParams;
+  const status = (typeof params.status === "string" ? params.status : "ALL") as
+    | PropertyStatus
+    | "ALL";
+  const type = (typeof params.type === "string" ? params.type : "ALL") as
+    | PropertyType
+    | "ALL";
+  const q = typeof params.q === "string" ? params.q : undefined;
+  const onShow = params.onShow === "1" || params.onShow === "true";
+  const city = typeof params.city === "string" ? params.city : undefined;
+  const suburb = typeof params.suburb === "string" ? params.suburb : undefined;
+
+  const properties = await getProperties({
+    status: status === "ALL" ? undefined : status,
+    type: type === "ALL" ? undefined : type,
+    q,
+    onShow: onShow || undefined,
+    city,
+    suburb,
+  });
+
+  return (
+    <div>
+      <div className="bg-navy px-0 pt-10 pb-8 text-white">
+        <div className="section-pad container-site">
+          <h1 className="display text-4xl md:text-5xl">Find your property</h1>
+          <p className="mt-2 max-w-2xl text-white/75">
+            Search listings for sale and to let across Bulawayo and beyond.
+          </p>
+          <div className="mt-6">
+            <HeroSearch compact />
+          </div>
+        </div>
+      </div>
+
+      <div className="section-pad container-site py-10">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <p className="text-sm text-muted">
+            {properties.length} propert{properties.length === 1 ? "y" : "ies"} found
+          </p>
+          <div className="flex flex-wrap gap-3 text-xs font-semibold tracking-wider uppercase">
+            <Link href="/properties?status=FOR_SALE" className="link-accent">
+              For Sale
+            </Link>
+            <Link href="/properties?status=TO_LET" className="link-accent">
+              To Let
+            </Link>
+            <Link href="/properties?onShow=1" className="link-accent">
+              On Show
+            </Link>
+          </div>
+        </div>
+
+        {properties.length === 0 ? (
+          <p className="py-20 text-center text-muted">No listings match these filters yet.</p>
+        ) : (
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {properties.map((p) => (
+              <div key={p.id} className="min-w-0">
+                <PropertyCard property={p} />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

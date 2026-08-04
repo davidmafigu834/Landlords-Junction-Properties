@@ -1,0 +1,63 @@
+"use client";
+
+import { useState, useTransition } from "react";
+import { submitEnquiry } from "@/lib/actions";
+
+type Props = {
+  type?: "GENERAL" | "PROPERTY" | "SELL";
+  propertyId?: string;
+  agentId?: string;
+  title?: string;
+  submitLabel?: string;
+};
+
+export function LeadForm({
+  type = "GENERAL",
+  propertyId,
+  agentId,
+  title = "Let us assist you",
+  submitLabel = "Submit",
+}: Props) {
+  const [message, setMessage] = useState<string | null>(null);
+  const [ok, setOk] = useState(false);
+  const [pending, startTransition] = useTransition();
+
+  return (
+    <div>
+      <h3 className="display text-2xl text-ink md:text-3xl">{title}</h3>
+      <form
+        className="mt-6 space-y-3"
+        action={(fd) => {
+          startTransition(async () => {
+            const result = await submitEnquiry(fd);
+            setOk(result.ok);
+            setMessage(result.message);
+          });
+        }}
+      >
+        <input type="hidden" name="type" value={type} />
+        {propertyId && <input type="hidden" name="propertyId" value={propertyId} />}
+        {agentId && <input type="hidden" name="agentId" value={agentId} />}
+        <input className="input" name="name" placeholder="Name" required />
+        <input className="input" name="phone" placeholder="Contact number" />
+        <input className="input" name="email" type="email" placeholder="Email address" required />
+        <textarea className="input min-h-28" name="message" placeholder="Message" required />
+        <p className="text-xs text-muted">
+          By submitting, you agree to be contacted about your enquiry. See our{" "}
+          <a href="/privacy" className="text-orange underline">
+            Privacy Policy
+          </a>
+          .
+        </p>
+        <div className="flex items-center justify-between gap-4">
+          {message && (
+            <p className={`text-sm ${ok ? "text-navy" : "text-orange"}`}>{message}</p>
+          )}
+          <button type="submit" className="btn-primary ml-auto" disabled={pending}>
+            {pending ? "Sending…" : submitLabel}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+}
