@@ -130,13 +130,11 @@ export async function SiteFooter() {
           <Image
             src="/logo.png"
             alt={BRAND.name}
-            width={72}
-            height={72}
-            className="mb-4 h-16 w-16 object-contain"
+            width={240}
+            height={144}
+            className="mb-4 h-auto w-44 object-contain object-left sm:w-52"
           />
-          <p className="display text-lg leading-snug">{BRAND.name}</p>
-          <p className="mt-2 text-sm text-white/70">{BRAND.tagline}</p>
-          <p className="mt-4 text-sm text-white/75">{BRAND.location}</p>
+          <p className="mt-2 text-sm text-white/75">{BRAND.location}</p>
         </div>
       </div>
 

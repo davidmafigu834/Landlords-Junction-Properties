@@ -2,21 +2,33 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 
 const links = [
-  { href: "/properties?status=FOR_SALE", label: "Buy" },
-  { href: "/properties?status=TO_LET", label: "Rent" },
-  { href: "/sell", label: "Sell / Let" },
-  { href: "/areas", label: "Areas" },
-  { href: "/agents", label: "Agents" },
-  { href: "/news", label: "Insights" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/properties", label: "Properties" },
+  { href: "/sell", label: "Services" },
+  { href: "/agents", label: "About Us" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
+const mobileLinks = [
+  ...links,
+  { href: "/areas", label: "Areas" },
+  { href: "/news", label: "Insights" },
+  { href: "/login", label: "Agent Login" },
+];
+
+function linkIsActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function SiteHeader() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -26,54 +38,71 @@ export function SiteHeader() {
     };
   }, [open]);
 
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
     <header className="sticky top-0 z-50 bg-navy text-white">
-      <div className="section-pad container-site grid h-16 grid-cols-[1fr_auto_1fr] items-center gap-2 md:h-[4.5rem]">
-        <div className="justify-self-start">
-          <button
-            type="button"
-            className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 text-xs font-semibold tracking-[0.18em] uppercase"
-            onClick={() => setOpen(true)}
-            aria-label="Open menu"
-          >
-            <Menu size={18} />
-            <span className="hidden sm:inline">Menu</span>
-          </button>
-        </div>
-
-        <Link href="/" className="flex items-center gap-2 sm:gap-3">
+      <div className="section-pad container-site flex h-16 items-center justify-between gap-4 md:h-[4.5rem]">
+        <Link href="/" className="flex min-w-0 items-center">
           <Image
             src="/logo.png"
             alt={BRAND.name}
-            width={48}
-            height={48}
-            className="h-10 w-10 object-contain md:h-12 md:w-12"
+            width={220}
+            height={132}
+            className="h-11 w-auto object-contain object-left md:h-14"
             priority
           />
-          <span className="hidden text-left lg:block">
-            <span className="display block text-sm leading-tight font-semibold tracking-wide md:text-base">
-              Landlords Junction
-            </span>
-            <span className="block text-[0.65rem] tracking-[0.22em] text-white/70 uppercase">
-              Properties
-            </span>
-          </span>
         </Link>
 
-        <Link
-          href="/properties"
-          className="inline-flex min-h-11 items-center justify-self-end gap-2 text-xs font-semibold tracking-[0.14em] uppercase transition hover:text-white/80"
-        >
-          <Search size={16} />
-          <span className="hidden sm:inline">Browse</span>
-          <span className="hidden md:inline"> properties</span>
-        </Link>
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+          {links.map((link) => {
+            const active = linkIsActive(pathname, link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-3 py-2 text-[0.7rem] font-semibold tracking-[0.16em] uppercase transition ${
+                  active
+                    ? "text-white underline decoration-orange decoration-2 underline-offset-[10px]"
+                    : "text-white/80 hover:text-white"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <Link
+            href="/contact"
+            className="btn-orange hidden !min-h-10 !px-4 !text-[0.7rem] sm:inline-flex"
+          >
+            Speak With Us
+          </Link>
+          <button
+            type="button"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center lg:hidden"
+            onClick={() => setOpen(true)}
+            aria-label="Open menu"
+          >
+            <Menu size={20} />
+          </button>
+        </div>
       </div>
 
       {open && (
         <div className="fixed inset-0 z-[60] overflow-y-auto overscroll-contain bg-navy-deep/95 text-white backdrop-blur-sm supports-[padding:max(0px)]:pb-[max(1rem,env(safe-area-inset-bottom))]">
           <div className="section-pad container-site flex h-16 items-center justify-between">
-            <Image src="/logo.png" alt="" width={40} height={40} className="h-10 w-10 object-contain" />
+            <Image
+              src="/logo.png"
+              alt={BRAND.name}
+              width={180}
+              height={108}
+              className="h-10 w-auto object-contain object-left"
+            />
             <button
               type="button"
               className="inline-flex min-h-11 min-w-11 items-center justify-center"
@@ -84,7 +113,7 @@ export function SiteHeader() {
             </button>
           </div>
           <nav className="section-pad container-site grid gap-1 pt-6 pb-12">
-            {links.map((link, i) => (
+            {mobileLinks.map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -96,11 +125,11 @@ export function SiteHeader() {
               </Link>
             ))}
             <Link
-              href="/login"
+              href="/contact"
               onClick={() => setOpen(false)}
-              className="btn-primary mt-8 inline-flex w-full max-w-xs justify-center sm:w-fit"
+              className="btn-orange mt-8 inline-flex w-full max-w-xs justify-center sm:w-fit"
             >
-              Agent Login
+              Speak With Us
             </Link>
           </nav>
         </div>

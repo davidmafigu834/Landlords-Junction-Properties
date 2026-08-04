@@ -1,8 +1,11 @@
 import { HomeHero } from "@/components/home/HomeHero";
+import { TrustBridge } from "@/components/home/TrustBridge";
+import { HeroSecondaryCTAs } from "@/components/home/HeroSecondaryCTAs";
 import { LifestyleGrid } from "@/components/home/LifestyleGrid";
 import { MarketAssessmentCTA } from "@/components/home/MarketAssessmentCTA";
 import { WhySellSection } from "@/components/home/WhySellSection";
 import { SectionCarousel } from "@/components/ui/SectionCarousel";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 import { PropertyCard } from "@/components/property/PropertyCard";
 import { AgentCard } from "@/components/agents/AgentCard";
 import { AreaCard } from "@/components/areas/AreaCard";
@@ -32,6 +35,9 @@ export default async function HomePage() {
   return (
     <>
       <HomeHero />
+      <TrustBridge />
+      <HeroSecondaryCTAs />
+      <SectionDivider showChevron />
 
       <section className="section-pad border-b border-line py-10 sm:py-14 md:py-16">
         <div className="container-site grid gap-6 sm:gap-8 md:grid-cols-[1.1fr_1fr] md:items-end">
@@ -56,6 +62,7 @@ export default async function HomePage() {
 
       <SectionCarousel
         title="Featured Properties"
+        eyebrow="Discover our best"
         href="/properties"
         links={[
           { href: "/properties?status=FOR_SALE", label: "For Sale" },
@@ -83,6 +90,7 @@ export default async function HomePage() {
         ))}
       </SectionCarousel>
 
+      <SectionDivider />
       <MarketAssessmentCTA />
       <WhySellSection />
 

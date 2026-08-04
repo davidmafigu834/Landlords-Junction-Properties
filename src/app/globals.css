@@ -91,6 +91,7 @@ body {
   text-transform: uppercase;
   font-size: 0.8rem;
   min-height: 2.75rem;
+  border-radius: 0.5rem;
   transition: background 180ms ease, transform 180ms ease;
 }
 
@@ -111,6 +112,7 @@ body {
   text-transform: uppercase;
   font-size: 0.8rem;
   min-height: 2.75rem;
+  border-radius: 0.5rem;
   transition: background 180ms ease;
 }
 
@@ -118,15 +120,140 @@ body {
   background: var(--orange-hot);
 }
 
+.btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1px solid color-mix(in oklab, white 55%, transparent);
+  color: white;
+  padding: 0.85rem 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  min-height: 2.75rem;
+  border-radius: 0.5rem;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.btn-ghost-light:hover {
+  border-color: var(--orange);
+  background: color-mix(in oklab, var(--orange) 16%, transparent);
+  color: white;
+}
+
+.btn-outline-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1px solid color-mix(in oklab, var(--navy) 28%, transparent);
+  color: var(--navy);
+  background: white;
+  padding: 0.95rem 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  min-height: 3rem;
+  border-radius: 0.6rem;
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+.btn-outline-navy:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+/* Floating bar that bridges two sections */
+.bridge-overlap {
+  position: relative;
+  z-index: 20;
+  margin-top: -3.5rem;
+}
+
+@media (min-width: 768px) {
+  .bridge-overlap {
+    margin-top: -4.25rem;
+  }
+}
+
+.surface-elevated {
+  border-radius: 0.85rem;
+  background: white;
+  box-shadow:
+    0 18px 40px color-mix(in oklab, var(--navy) 16%, transparent),
+    0 2px 8px color-mix(in oklab, var(--navy) 8%, transparent);
+}
+
+.trust-bridge {
+  border-radius: 1.25rem;
+  background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
+  box-shadow:
+    0 22px 48px color-mix(in oklab, var(--navy-deep) 35%, transparent),
+    0 2px 10px color-mix(in oklab, var(--navy) 18%, transparent);
+}
+
+/* Diagonal orange + navy wedges */
+.section-wedge {
+  position: relative;
+  height: clamp(3.5rem, 8vw, 5.5rem);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.section-wedge::before,
+.section-wedge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.section-wedge::before {
+  background: var(--orange);
+  clip-path: polygon(0 35%, 100% 0, 100% 28%, 0 100%);
+  opacity: 0.95;
+}
+
+.section-wedge::after {
+  background: var(--navy);
+  clip-path: polygon(0 72%, 100% 22%, 100% 100%, 0 100%);
+}
+
+.section-wedge-chevron {
+  position: absolute;
+  left: 50%;
+  bottom: 0.65rem;
+  z-index: 2;
+  display: flex;
+  transform: translateX(-50%);
+  color: white;
+  animation: chevron-bob 1.8s ease-in-out infinite;
+}
+
+@keyframes chevron-bob {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-50%) translateY(5px);
+    opacity: 1;
+  }
+}
+
 .badge {
   display: inline-block;
-  background: var(--orange);
+  background: var(--navy);
   color: white;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 0.35rem 0.55rem;
+  border-radius: 0.25rem;
 }
 
 .input {

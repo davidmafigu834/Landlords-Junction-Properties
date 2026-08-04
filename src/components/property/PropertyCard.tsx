@@ -30,7 +30,7 @@ export function PropertyCard({
         {label && <span className="badge absolute top-3 left-3 z-10">{label}</span>}
       </div>
       <div className="pt-4">
-        <p className="text-lg font-semibold text-ink sm:text-xl">
+        <p className="text-lg font-semibold text-orange sm:text-xl">
           {formatPrice(property.price, property.currency, property.status)}
         </p>
         <p className="mt-1 text-sm text-muted">

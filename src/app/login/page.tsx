@@ -13,12 +13,16 @@ export default function LoginPage() {
   return (
     <div className="section-pad flex min-h-[70vh] items-center justify-center py-16">
       <div className="w-full max-w-md border border-line bg-white p-8 shadow-sm">
-        <div className="mb-6 flex items-center gap-3">
-          <Image src="/logo.png" alt="" width={48} height={48} className="h-12 w-12 object-contain" />
-          <div>
-            <p className="display text-xl text-ink">Agent Login</p>
-            <p className="text-sm text-muted">Landlords Junction portal</p>
-          </div>
+        <div className="mb-6">
+          <Image
+            src="/logo.png"
+            alt="Landlords Junction Properties"
+            width={220}
+            height={132}
+            className="mb-4 h-auto w-44 object-contain"
+          />
+          <p className="display text-xl text-ink">Agent Login</p>
+          <p className="text-sm text-muted">Landlords Junction portal</p>
         </div>
         <form
           className="space-y-3"
