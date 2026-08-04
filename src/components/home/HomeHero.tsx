@@ -30,10 +30,10 @@ export function HomeHero() {
                 priority
               />
             </div>
-            <h1 className="display animate-rise delay-1 mx-auto max-w-2xl text-2xl leading-[1.1] sm:text-3xl md:text-5xl">
+            <h1 className="display animate-rise delay-1 mx-auto max-w-2xl text-[1.85rem] leading-[1.12] sm:text-4xl md:text-5xl">
               Property care with <span className="text-orange">discipline</span>
             </h1>
-            <p className="animate-rise delay-2 mx-auto mt-2 max-w-xl text-xs text-white/90 sm:mt-3 sm:text-sm md:text-base">
+            <p className="animate-rise delay-2 mx-auto mt-3 max-w-xl text-[0.95rem] leading-relaxed text-white/90 sm:mt-3.5 sm:text-base md:text-lg">
               We protect and grow property wealth through trusted advice, ethical execution, and
               accountable service across Bulawayo.
             </p>
