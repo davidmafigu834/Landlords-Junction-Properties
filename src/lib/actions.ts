@@ -7,6 +7,8 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { revalidatePath } from "next/cache";
 import { slugify } from "@/lib/utils";
 import type { PropertyStatus, PropertyType } from "@/lib/data/types";
+import { seedAgents, seedProperties } from "@/lib/data/seed";
+import { forwardEnquiryToSegmiq, isSegmiqConfigured } from "@/lib/segmiq";
 
 const enquirySchema = z.object({
   name: z.string().min(2),
@@ -19,6 +21,64 @@ const enquirySchema = z.object({
 });
 
 export type ActionResult = { ok: true; message: string } | { ok: false; message: string };
+
+async function resolveEnquiryRefs(propertyId?: string, agentId?: string) {
+  let listingReference: string | null = null;
+  let agentReference: string | null = null;
+  let enrichedMessage = "";
+
+  if (isSupabaseConfigured()) {
+    try {
+      const supabase = await createClient();
+      if (propertyId) {
+        const { data: property } = await supabase
+          .from("properties")
+          .select("slug, title, suburb, city, agent_id")
+          .eq("id", propertyId)
+          .maybeSingle();
+        if (property) {
+          listingReference = property.slug;
+          enrichedMessage = `Listing: ${property.title} (${property.suburb}, ${property.city}) [${property.slug}]`;
+          if (!agentId && property.agent_id) agentId = property.agent_id;
+        }
+      }
+      if (agentId) {
+        const { data: agent } = await supabase
+          .from("profiles")
+          .select("phone, name")
+          .eq("id", agentId)
+          .maybeSingle();
+        if (agent?.phone) agentReference = agent.phone;
+        if (agent?.name) {
+          enrichedMessage = [enrichedMessage, `Agent: ${agent.name}`].filter(Boolean).join("\n");
+        }
+      }
+    } catch (err) {
+      console.error("[enquiry] resolve refs failed", err);
+    }
+  }
+
+  if (!listingReference && propertyId) {
+    const seeded = seedProperties.find((p) => p.id === propertyId || p.slug === propertyId);
+    if (seeded) {
+      listingReference = seeded.slug;
+      enrichedMessage =
+        enrichedMessage ||
+        `Listing: ${seeded.title} (${seeded.suburb}, ${seeded.city}) [${seeded.slug}]`;
+      if (!agentId) agentId = seeded.agent_id;
+    }
+  }
+
+  if (!agentReference && agentId) {
+    const seeded = seedAgents.find((a) => a.id === agentId || a.slug === agentId);
+    if (seeded?.phone) {
+      agentReference = seeded.phone;
+      enrichedMessage = [enrichedMessage, `Agent: ${seeded.name}`].filter(Boolean).join("\n");
+    }
+  }
+
+  return { listingReference, agentReference, enrichedMessage };
+}
 
 export async function submitEnquiry(formData: FormData): Promise<ActionResult> {
   const parsed = enquirySchema.safeParse({
@@ -35,6 +95,14 @@ export async function submitEnquiry(formData: FormData): Promise<ActionResult> {
     return { ok: false, message: "Please check the form fields and try again." };
   }
 
+  const { listingReference, agentReference, enrichedMessage } = await resolveEnquiryRefs(
+    parsed.data.propertyId,
+    parsed.data.agentId,
+  );
+
+  const messageForCrm = [parsed.data.message, enrichedMessage].filter(Boolean).join("\n\n");
+
+  let savedLocally = false;
   if (isSupabaseConfigured()) {
     try {
       const supabase = await createClient();
@@ -48,17 +116,47 @@ export async function submitEnquiry(formData: FormData): Promise<ActionResult> {
         agent_id: parsed.data.agentId ?? null,
       });
       if (error) throw error;
-      return { ok: true, message: "Thank you — we’ll be in touch shortly." };
+      savedLocally = true;
     } catch {
-      return {
-        ok: false,
-        message: "We couldn’t save your enquiry right now. Please call or email the office.",
-      };
+      // Continue to SegmiQ if configured; otherwise fail below.
+      if (!isSegmiqConfigured()) {
+        return {
+          ok: false,
+          message: "We couldn’t save your enquiry right now. Please call or email the office.",
+        };
+      }
+      console.error("[enquiry] Supabase insert failed; attempting SegmiQ forward");
     }
   }
 
-  // Demo mode without Supabase — accept and acknowledge
-  console.log("[enquiry:demo]", parsed.data);
+  if (isSegmiqConfigured()) {
+    const segmiq = await forwardEnquiryToSegmiq({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      phone: parsed.data.phone,
+      message: messageForCrm,
+      type: parsed.data.type,
+      listingReference,
+      agentReference,
+    });
+    if (segmiq.ok) {
+      return { ok: true, message: "Thank you — we’ll be in touch shortly." };
+    }
+    if (savedLocally) {
+      console.error("[enquiry] SegmiQ forward failed after local save:", segmiq.error);
+      return { ok: true, message: "Thank you — we’ll be in touch shortly." };
+    }
+    return {
+      ok: false,
+      message: "We couldn’t save your enquiry right now. Please call or email the office.",
+    };
+  }
+
+  if (savedLocally) {
+    return { ok: true, message: "Thank you — we’ll be in touch shortly." };
+  }
+
+  console.log("[enquiry:demo]", { ...parsed.data, listingReference, agentReference });
   return {
     ok: true,
     message: "Thank you — we’ve received your message (demo mode).",
