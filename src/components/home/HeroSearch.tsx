@@ -22,11 +22,11 @@ export function HeroSearch({ compact = false }: { compact?: boolean }) {
   return (
     <form
       onSubmit={onSubmit}
-      className={`surface-elevated grid w-full grid-cols-1 gap-2 p-3 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1.5fr_auto] lg:gap-3 lg:p-4 ${
+      className={`surface-elevated grid w-full grid-cols-2 gap-3 p-4 lg:grid-cols-[1fr_1fr_1.5fr_auto] lg:p-5 ${
         compact ? "" : "animate-rise delay-3"
       }`}
     >
-      <label className="relative">
+      <label className="relative min-w-0">
         <Home
           className="pointer-events-none absolute top-1/2 left-3 z-10 -translate-y-1/2 text-orange"
           size={16}
@@ -48,7 +48,7 @@ export function HeroSearch({ compact = false }: { compact?: boolean }) {
         />
       </label>
 
-      <label className="relative">
+      <label className="relative min-w-0">
         <Building2
           className="pointer-events-none absolute top-1/2 left-3 z-10 -translate-y-1/2 text-orange"
           size={16}
@@ -74,7 +74,7 @@ export function HeroSearch({ compact = false }: { compact?: boolean }) {
         />
       </label>
 
-      <label className="relative flex min-h-12 items-center sm:col-span-2 lg:col-span-1">
+      <label className="relative col-span-2 flex min-h-12 min-w-0 items-center lg:col-span-1">
         <MapPin
           className="pointer-events-none absolute top-1/2 left-3 z-10 -translate-y-1/2 text-orange"
           size={16}
@@ -90,7 +90,7 @@ export function HeroSearch({ compact = false }: { compact?: boolean }) {
 
       <button
         type="submit"
-        className="btn-orange min-h-12 w-full rounded-lg sm:col-span-2 lg:col-span-1 lg:w-auto lg:min-w-[9.5rem]"
+        className="btn-orange col-span-2 min-h-12 w-full rounded-lg lg:col-span-1 lg:w-auto lg:min-w-[9.5rem]"
       >
         <Search size={16} />
         Search

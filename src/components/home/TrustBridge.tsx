@@ -36,23 +36,23 @@ const pillars: {
 
 export function TrustBridge() {
   return (
-    <div className="section-pad relative z-20 pt-5 sm:pt-6">
-      <div className="trust-bridge animate-rise delay-2 container-site overflow-hidden px-2 py-2 sm:px-3 sm:py-3">
-        <ul className="grid gap-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+    <div className="section-pad relative z-20 py-8 sm:py-10 md:py-12">
+      <div className="trust-bridge animate-rise delay-2 container-site overflow-hidden px-2 py-3 sm:px-4 sm:py-4">
+        <ul className="-mx-1 flex snap-x snap-mandatory gap-2 overflow-x-auto px-1 pb-1 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4 lg:gap-0">
           {pillars.map((pillar, index) => {
             const Icon = pillar.icon;
             return (
               <li
                 key={pillar.title}
-                className={`relative ${
+                className={`relative min-w-[78%] shrink-0 snap-center sm:min-w-0 sm:shrink ${
                   index < pillars.length - 1
-                    ? "lg:after:absolute lg:after:top-4 lg:after:right-0 lg:after:bottom-4 lg:after:w-px lg:after:bg-white/15"
+                    ? "lg:after:absolute lg:after:top-5 lg:after:right-0 lg:after:bottom-5 lg:after:w-px lg:after:bg-white/15"
                     : ""
                 }`}
               >
                 <Link
                   href={pillar.href}
-                  className="group flex h-full flex-col items-center gap-2 rounded-xl px-4 py-5 text-center transition hover:bg-white/5 sm:py-6"
+                  className="group flex h-full flex-col items-center gap-2.5 rounded-xl px-4 py-5 text-center transition hover:bg-white/5 sm:gap-3 sm:px-5 sm:py-7"
                 >
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-orange/15 text-orange ring-1 ring-orange/35 transition group-hover:bg-orange group-hover:text-white">
                     <Icon size={20} aria-hidden />
