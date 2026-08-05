@@ -22,7 +22,8 @@ export function HomeHero() {
           <div className="w-full max-w-3xl text-center lg:text-left">
             <p className="animate-rise mb-4 flex items-center justify-center gap-3 text-[0.7rem] font-bold tracking-[0.2em] text-orange uppercase lg:justify-start">
               <span className="h-px w-9 bg-orange" />
-              Trusted property stewardship
+              Trusted property steward
+              <span className="h-px w-9 bg-orange lg:hidden" />
             </p>
             <h1 className="display animate-rise delay-1 max-w-3xl text-[2.35rem] leading-[1.08] sm:text-5xl lg:text-[4.3rem]">
               Protecting & growing

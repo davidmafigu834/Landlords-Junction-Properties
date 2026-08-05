@@ -13,7 +13,7 @@ const links = [
   { href: "/properties?status=TO_LET", label: "Rent" },
   { href: "/sell", label: "Services" },
   { href: "/properties?type=DEVELOPMENT", label: "Developments" },
-  { href: "/agents", label: "Our Advisers" },
+  { href: "/agents", label: "Our Agents" },
   { href: "/news", label: "Resources" },
   { href: "/contact", label: "Contact Us" },
 ];
@@ -97,10 +97,10 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/contact"
+            href="/list-property"
             className="btn-orange hidden !min-h-11 !rounded-sm !px-4 !text-xs sm:inline-flex"
           >
-            Request assessment
+            List your property
           </Link>
           <button
             type="button"

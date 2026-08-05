@@ -13,17 +13,14 @@ import { NewsCard } from "@/components/news/NewsCard";
 import { getAreas, getPosts, getProperties } from "@/lib/data/queries";
 
 export default async function HomePage() {
-  const [featuredSale, onShow, areas, posts, allProperties] = await Promise.all([
-    getProperties({ status: "FOR_SALE", featured: true }),
-    getProperties({ onShow: true }),
+  const [saleProperties, rentalProperties, areas, posts, allProperties] = await Promise.all([
+    getProperties({ status: "FOR_SALE" }),
+    getProperties({ status: "TO_LET" }),
     getAreas(),
     getPosts(),
     getProperties(),
   ]);
 
-  const featured = featuredSale.length
-    ? featuredSale
-    : allProperties.filter((p) => p.status === "FOR_SALE");
   return (
     <>
       <FloatingContactRail />
@@ -33,17 +30,25 @@ export default async function HomePage() {
       <ServicesGrid />
 
       <SectionCarousel
-        title="Featured Properties"
-        eyebrow="Selected listings"
-        href="/properties"
+        title="Properties For Sale"
+        eyebrow="Homes and investments"
+        href="/properties?status=FOR_SALE"
+        hrefLabel="View all for sale"
         tone="navy"
-        links={[
-          { href: "/properties?status=FOR_SALE", label: "For Sale" },
-          { href: "/properties?status=TO_LET", label: "To Let" },
-        ]}
       >
-        {featured.map((p) => (
-          <PropertyCard key={p.id} property={p} badge="Featured" />
+        {saleProperties.map((p) => (
+          <PropertyCard key={p.id} property={p} badge="For Sale" />
+        ))}
+      </SectionCarousel>
+
+      <SectionCarousel
+        title="Properties For Rent"
+        eyebrow="Available to let"
+        href="/properties?status=TO_LET"
+        hrefLabel="View all for rent"
+      >
+        {rentalProperties.map((p) => (
+          <PropertyCard key={p.id} property={p} badge="For Rent" />
         ))}
       </SectionCarousel>
 
