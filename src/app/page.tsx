@@ -52,14 +52,6 @@ export default async function HomePage() {
         ))}
       </SectionCarousel>
 
-      {onShow.length > 0 && (
-        <SectionCarousel title="On Show" href="/properties?onShow=1" hrefLabel="View all">
-          {onShow.map((p) => (
-            <PropertyCard key={p.id} property={p} badge="On Show" />
-          ))}
-        </SectionCarousel>
-      )}
-
       <SectionCarousel title="Our Areas" href="/areas" hrefLabel="View all">
         {areas.slice(0, 4).map((area) => (
           <AreaCard key={area.id} area={area} properties={allProperties} />
