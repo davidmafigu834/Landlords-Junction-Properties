@@ -25,7 +25,6 @@ export default async function HomePage() {
     <>
       <FloatingContactRail />
       <HomeHero />
-      <TrustBridge />
 
       <ServicesGrid />
 
@@ -62,6 +61,7 @@ export default async function HomePage() {
 
       <SectionDivider />
       <WhyChooseUs />
+      <TrustBridge />
       <TestimonialBand />
 
       <SectionCarousel title="Insights" href="/news" hrefLabel="View all">

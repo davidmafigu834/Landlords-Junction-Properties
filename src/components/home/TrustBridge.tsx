@@ -35,7 +35,7 @@ const stats: {
 
 export function TrustBridge() {
   return (
-    <section className="section-pad relative z-20 mt-8 border-b border-line bg-white py-8 sm:mt-10 sm:py-10 lg:mt-12">
+    <section className="section-pad relative z-20 border-b border-line bg-white py-8 sm:py-10">
       <div className="container-site grid grid-cols-2 gap-y-8 md:grid-cols-4">
         {stats.map((stat, index) => {
           const Icon = stat.icon;
