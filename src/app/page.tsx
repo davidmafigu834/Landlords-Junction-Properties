@@ -34,7 +34,7 @@ export default async function HomePage() {
 
       <SectionCarousel
         title="Featured Properties"
-        eyebrow="Discover our best"
+        eyebrow="Selected listings"
         href="/properties"
         tone="navy"
         links={[

@@ -13,7 +13,7 @@ const links = [
   { href: "/properties?status=TO_LET", label: "Rent" },
   { href: "/sell", label: "Services" },
   { href: "/properties?type=DEVELOPMENT", label: "Developments" },
-  { href: "/agents", label: "About Us" },
+  { href: "/agents", label: "Our Advisers" },
   { href: "/news", label: "Resources" },
   { href: "/contact", label: "Contact Us" },
 ];
@@ -149,7 +149,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className="btn-orange mt-8 inline-flex w-full max-w-xs justify-center sm:w-fit"
             >
-              Speak With Us
+              Contact Us
             </Link>
           </nav>
         </div>

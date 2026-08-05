@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Mail, MessageCircle, PhoneCall, RotateCcw } from "lucide-react";
+import { ClipboardList, Mail, MessageCircle, RotateCcw } from "lucide-react";
 
 const actions = [
-  { label: "Call us", href: "/contact", icon: PhoneCall },
-  { label: "WhatsApp", href: "/contact", icon: MessageCircle },
+  { label: "Speak with us", href: "/contact", icon: MessageCircle },
+  { label: "Send enquiry", href: "/contact", icon: ClipboardList },
   { label: "Email us", href: "mailto:hello@landlordsjunction.co.zw", icon: Mail },
   { label: "Request callback", href: "/contact", icon: RotateCcw },
 ];

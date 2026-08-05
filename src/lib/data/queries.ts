@@ -164,6 +164,17 @@ export async function getListingCounts() {
     forSale: properties.filter((p) => p.status === "FOR_SALE").length,
     toLet: properties.filter((p) => p.status === "TO_LET").length,
     onShow: properties.filter((p) => p.on_show).length,
+    housesToLet: properties.filter((p) => p.status === "TO_LET" && p.type === "HOUSE").length,
+    housesForSale: properties.filter((p) => p.status === "FOR_SALE" && p.type === "HOUSE").length,
+    commercialForSale: properties.filter(
+      (p) => p.status === "FOR_SALE" && p.type === "COMMERCIAL",
+    ).length,
+    vacantLandForSale: properties.filter(
+      (p) => p.status === "FOR_SALE" && p.type === "VACANT_LAND",
+    ).length,
+    farmsForSale: properties.filter(
+      (p) => p.status === "FOR_SALE" && p.type === "FARM",
+    ).length,
     byType: Object.fromEntries(
       (
         [

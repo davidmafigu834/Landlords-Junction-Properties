@@ -29,7 +29,7 @@ export function HomeHero() {
               <span className="block text-orange">property wealth</span>
             </h1>
             <p className="animate-rise delay-2 mx-auto mt-5 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base lg:mx-0 lg:text-lg">
-              We protect and grow property wealth through trusted advice, ethical execution, and
+              We protect and grow property wealth through disciplined advice, ethical execution, and
               accountable service across Bulawayo.
             </p>
             <div className="animate-rise delay-3 mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
@@ -39,7 +39,7 @@ export function HomeHero() {
               </Link>
               <Link href="/contact" className="btn-ghost-light !rounded-sm">
                 <CalendarDays size={16} />
-                Book a consultation
+                Request a consultation
                 <ArrowRight size={14} />
               </Link>
             </div>

@@ -140,11 +140,11 @@ export async function submitEnquiry(formData: FormData): Promise<ActionResult> {
       agentReference,
     });
     if (segmiq.ok) {
-      return { ok: true, message: "Thank you — we’ll be in touch shortly." };
+      return { ok: true, message: "Thank you. We have received your enquiry and will confirm the next responsible step." };
     }
     if (savedLocally) {
       console.error("[enquiry] SegmiQ forward failed after local save:", segmiq.error);
-      return { ok: true, message: "Thank you — we’ll be in touch shortly." };
+      return { ok: true, message: "Thank you. We have received your enquiry and will confirm the next responsible step." };
     }
     return {
       ok: false,
@@ -153,7 +153,7 @@ export async function submitEnquiry(formData: FormData): Promise<ActionResult> {
   }
 
   if (savedLocally) {
-    return { ok: true, message: "Thank you — we’ll be in touch shortly." };
+    return { ok: true, message: "Thank you. We have received your enquiry and will confirm the next responsible step." };
   }
 
   console.log("[enquiry:demo]", { ...parsed.data, listingReference, agentReference });

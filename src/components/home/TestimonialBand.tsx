@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ChevronRight, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 
 export function TestimonialBand() {
   return (
@@ -7,7 +7,7 @@ export function TestimonialBand() {
       <div className="absolute inset-y-0 right-0 hidden w-[46%] md:block">
         <Image
           src="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=1200&q=80"
-          alt="Happy property clients"
+          alt="A family whose property interests deserve careful stewardship"
           fill
           className="object-cover"
           sizes="46vw"
@@ -20,20 +20,18 @@ export function TestimonialBand() {
           <div className="flex flex-col items-center gap-4 md:flex-row md:items-start">
             <Quote size={38} fill="currentColor" className="shrink-0 text-orange" />
             <div>
+              <p className="mb-2 text-xs font-bold tracking-[0.16em] text-orange uppercase">
+                Our stewardship commitment
+              </p>
               <blockquote className="display text-lg leading-relaxed sm:text-2xl">
-                LJP sold my property in just three weeks at a great price. Their professionalism is
-                unmatched.
+                We treat every property as a valuable asset to be protected—not merely a listing
+                to be sold.
               </blockquote>
-              <p className="mt-4 text-xs font-semibold text-white/75">— Tinashe M., Property Seller</p>
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/75">
+                Clear advice, proper records, responsible decisions, and accountable service at
+                every stage.
+              </p>
             </div>
-          </div>
-          <div className="mt-7 flex items-center justify-center gap-3 md:justify-start md:pl-14" aria-hidden>
-            <span className="h-2 w-2 rounded-full bg-white/35" />
-            <span className="h-2 w-2 rounded-full bg-orange" />
-            <span className="h-2 w-2 rounded-full bg-white/35" />
-            <span className="ml-2 flex h-7 w-7 items-center justify-center rounded-full border border-white/30">
-              <ChevronRight size={14} />
-            </span>
           </div>
         </div>
       </div>

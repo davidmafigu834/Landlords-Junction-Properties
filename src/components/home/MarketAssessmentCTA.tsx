@@ -19,7 +19,7 @@ export function MarketAssessmentCTA() {
             </p>
           </div>
           <Link href="/sell" className="btn-orange w-full shrink-0 sm:w-auto">
-            List your property
+            Request a market assessment
           </Link>
         </div>
       </div>

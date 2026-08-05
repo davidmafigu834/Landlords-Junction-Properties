@@ -1,25 +1,25 @@
 import Link from "next/link";
-import { ArrowRight, Heart, MapPin, ShieldCheck, Target } from "lucide-react";
+import { ArrowRight, FileCheck2, Heart, Scale, ShieldCheck } from "lucide-react";
 
 const strengths = [
   {
     title: "Integrity & ethics",
-    body: "We uphold honesty, transparency and professional standards in everything we do.",
+    body: "Material facts, risks, and next steps are explained clearly—without selective disclosure.",
     icon: ShieldCheck,
   },
   {
-    title: "Local expertise",
-    body: "Deep understanding of the Bulawayo property market and its neighbourhoods.",
-    icon: MapPin,
+    title: "Prudent advice",
+    body: "Recommendations are based on checks, comparable evidence, and sound professional judgment.",
+    icon: Scale,
   },
   {
-    title: "Proven track record",
-    body: "Focused execution and evidence-led advice that protects long-term value.",
-    icon: Target,
+    title: "Accountability",
+    body: "We keep proper records, provide clear updates, and take ownership until each matter is closed.",
+    icon: FileCheck2,
   },
   {
-    title: "Client focused",
-    body: "Your goals are our priority, with one accountable team from start to finish.",
+    title: "Respect & empathy",
+    body: "Every landlord, tenant, buyer, and seller is treated with patience, fairness, and dignity.",
     icon: Heart,
   },
 ];
@@ -30,17 +30,17 @@ export function WhyChooseUs() {
       <div className="container-site grid gap-10 lg:grid-cols-[1.05fr_2fr] lg:items-center">
         <div className="text-center lg:text-left">
           <p className="text-xs font-bold tracking-[0.18em] text-orange uppercase">
-            Why choose us
+            Our approach
           </p>
           <h2 className="display mt-1 text-3xl leading-tight text-navy sm:text-4xl">
-            Integrity. Expertise. Results.
+            Clear judgment. Responsible care.
           </h2>
           <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-muted lg:mx-0">
-            We combine deep local knowledge, professional expertise and a client-first approach to
-            deliver exceptional property outcomes.
+            Our work combines local knowledge, disciplined process, and long-term thinking to help
+            clients make informed property decisions and manage risk responsibly.
           </p>
           <Link href="/agents" className="btn-orange mt-6 !min-h-10 !rounded-sm !px-5">
-            About us <ArrowRight size={14} />
+            Meet our advisers <ArrowRight size={14} />
           </Link>
         </div>
 

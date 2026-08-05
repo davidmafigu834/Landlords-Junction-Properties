@@ -52,7 +52,7 @@ export function AreaCard({
       <div className="mt-5 grid gap-6 md:grid-cols-[1.4fr_0.8fr]">
         <div>
           <p className="font-semibold text-ink">
-            Living, buying & investing in {area.name}, Zimbabwe.
+            Properties for sale and to let in {area.name}, Zimbabwe.
           </p>
           <p className="mt-2 text-sm leading-relaxed text-muted">{area.description}</p>
         </div>

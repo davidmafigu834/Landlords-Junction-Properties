@@ -8,27 +8,27 @@ const stats: {
   icon: LucideIcon;
 }[] = [
   {
-    value: "500+",
-    title: "Satisfied clients",
-    caption: "Across Bulawayo",
+    value: "Protection",
+    title: "Before profit",
+    caption: "Long-term interests come first",
     icon: Users,
   },
   {
-    value: "US$20M+",
-    title: "Property transactions",
-    caption: "Successfully closed",
+    value: "Truth",
+    title: "Before convenience",
+    caption: "Material facts disclosed clearly",
     icon: CircleDollarSign,
   },
   {
-    value: "98%",
-    title: "Client satisfaction",
-    caption: "From our clients",
+    value: "Value",
+    title: "Before volume",
+    caption: "Evidence-led property decisions",
     icon: ShieldCheck,
   },
   {
-    value: "24 hours",
-    title: "Average response time",
-    caption: "We are here for you",
+    value: "Accountability",
+    title: "Outcomes, not excuses",
+    caption: "Clear ownership and follow-through",
     icon: Clock3,
   },
 ];
@@ -48,7 +48,7 @@ export function TrustBridge() {
             >
               <Icon size={39} strokeWidth={1.6} className="shrink-0 text-orange" />
               <div>
-                <p className="display text-xl font-bold leading-none text-navy sm:text-2xl">
+                <p className="display text-lg font-bold leading-none text-navy sm:text-xl">
                   {stat.value}
                 </p>
                 <p className="mt-1 text-xs font-bold tracking-[0.06em] text-navy uppercase">

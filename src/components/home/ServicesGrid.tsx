@@ -19,13 +19,13 @@ const services: { title: string; body: string; href: string; icon: LucideIcon }[
   },
   {
     title: "Property letting",
-    body: "The right tenant, clear terms and accountable rental support.",
+    body: "Structured tenant placement, clear terms, and accountable rental support.",
     href: "/properties?status=TO_LET",
     icon: KeyRound,
   },
   {
     title: "Property management",
-    body: "Disciplined oversight that protects income, condition and long-term value.",
+    body: "Disciplined oversight of occupancy, records, maintenance, and long-term value.",
     href: "/sell",
     icon: Building2,
   },
@@ -37,13 +37,13 @@ const services: { title: string; body: string; href: string; icon: LucideIcon }[
   },
   {
     title: "Investment guidance",
-    body: "Stewardship-minded advice for owners building lasting property wealth.",
+    body: "Disciplined advice for owners focused on lasting property value.",
     href: "/contact",
     icon: BarChart3,
   },
   {
     title: "Developments",
-    body: "Thoughtful opportunities presented with clarity, diligence and care.",
+    body: "Development opportunities presented with factual information, diligence, and care.",
     href: "/properties?type=DEVELOPMENT",
     icon: Hammer,
   },
@@ -58,7 +58,7 @@ export function ServicesGrid() {
             Our services
           </p>
           <h2 className="display mt-1 text-2xl text-navy sm:text-3xl md:text-4xl">
-            Comprehensive property solutions
+            Property stewardship services
           </h2>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">

@@ -20,30 +20,28 @@ export async function SiteFooter() {
     { href: "/properties?onShow=1", label: "On Show", count: counts.onShow },
     {
       href: "/properties?status=TO_LET&type=HOUSE",
-      label: "Residential To Let",
-      count: counts.byType.HOUSE
-        ? Math.max(1, Math.round(counts.toLet * 0.7))
-        : counts.toLet,
+      label: "Houses To Let",
+      count: counts.housesToLet,
     },
     {
       href: "/properties?status=FOR_SALE&type=HOUSE",
-      label: "Residential For Sale",
-      count: counts.byType.HOUSE ?? 0,
+      label: "Houses For Sale",
+      count: counts.housesForSale,
     },
     {
       href: "/properties?status=FOR_SALE&type=COMMERCIAL",
       label: "Commercial For Sale",
-      count: counts.byType.COMMERCIAL ?? 0,
+      count: counts.commercialForSale,
     },
     {
       href: "/properties?status=FOR_SALE&type=VACANT_LAND",
       label: "Vacant Land",
-      count: counts.byType.VACANT_LAND ?? 0,
+      count: counts.vacantLandForSale,
     },
     {
       href: "/properties?status=FOR_SALE&type=FARM",
       label: "Farms & Small Holdings",
-      count: counts.byType.FARM ?? 0,
+      count: counts.farmsForSale,
     },
   ];
 
@@ -52,11 +50,13 @@ export async function SiteFooter() {
       <div className="bg-orange">
         <div className="section-pad container-site flex flex-col items-center justify-between gap-4 py-6 text-center sm:flex-row sm:text-left">
           <div>
-            <p className="display text-xl sm:text-2xl">Ready to grow your property wealth?</p>
-            <p className="mt-1 text-sm text-white/85">Let&apos;s talk about how we can help you achieve your property goals.</p>
+            <p className="display text-xl sm:text-2xl">Ready to discuss your property?</p>
+            <p className="mt-1 text-sm text-white/85">
+              We can outline the likely next steps, costs, and risks without pressure.
+            </p>
           </div>
           <Link href="/contact" className="inline-flex min-h-11 items-center gap-2 bg-navy px-5 text-xs font-bold tracking-wider uppercase">
-            Speak with our team
+            Contact our team
             <ArrowRight size={15} />
           </Link>
         </div>

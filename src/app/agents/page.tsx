@@ -9,7 +9,7 @@ export default async function AgentsPage() {
 
   return (
     <div className="section-pad container-site py-10 sm:py-14">
-      <h1 className="display text-3xl text-ink sm:text-4xl md:text-5xl">Meet the Team</h1>
+      <h1 className="display text-3xl text-ink sm:text-4xl md:text-5xl">Our advisers</h1>
       <p className="mt-3 max-w-2xl text-sm text-muted sm:text-base">
         Calm, precise advisers who protect value first — ready to guide buying, selling, and letting
         with clarity and care.

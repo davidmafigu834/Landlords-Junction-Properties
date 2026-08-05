@@ -43,7 +43,7 @@ export const seedAgents: Profile[] = [
     role: "AGENT",
     phone: "+263 77 123 4567",
     title: "Principal Agent",
-    bio: "Bulawayo-born and market-obsessed, Thandi has guided families and investors across Matabeleland for over a decade.",
+    bio: "Bulawayo-born and focused on market evidence, Thandi has guided families and investors across Matabeleland for over a decade.",
     image_url: img.agent1,
     active: true,
     slug: "thandi-ncube",
@@ -69,7 +69,7 @@ export const seedAgents: Profile[] = [
     role: "AGENT",
     phone: "+263 78 555 0199",
     title: "Commercial & Land",
-    bio: "From vacant stands to warehouse stock, Rudo helps landlords unlock commercial value across Bulawayo and surrounds.",
+    bio: "From vacant stands to warehouse stock, Rudo advises landlords on commercial listings across Bulawayo and surrounds with clear documentation and realistic pricing.",
     image_url: img.agent3,
     active: true,
     slug: "rudo-moyo",
@@ -85,7 +85,7 @@ export const seedAreas: Area[] = [
     city: "Bulawayo",
     image_url: img.byo,
     description:
-      "Zimbabwe’s City of Kings — established suburbs, strong rental demand, and a property market shaped by industry, education, and growing diaspora investment.",
+      "Zimbabwe’s City of Kings — established suburbs and a property market shaped by industry, education, and diaspora interest.",
   },
   {
     id: "ar2",
@@ -94,7 +94,7 @@ export const seedAreas: Area[] = [
     city: "Harare",
     image_url: img.harare,
     description:
-      "The capital’s northern suburbs continue to set national pricing benchmarks, with demand shaped by employment concentration and suburb-level differentiation.",
+      "The capital’s northern suburbs show distinct suburb-level pricing shaped by location, property condition, and access to services.",
   },
   {
     id: "ar3",
@@ -103,7 +103,7 @@ export const seedAreas: Area[] = [
     city: "Bulawayo",
     image_url: img.house2,
     description:
-      "Leafy, established, and consistently sought-after — Hillside remains one of Bulawayo’s most trusted addresses for family living.",
+      "Leafy and established, Hillside offers longstanding residential streets and family housing in Bulawayo.",
   },
   {
     id: "ar4",
@@ -122,7 +122,7 @@ export const seedProperties: Property[] = [
     slug: "3-bedroom-house-hillside",
     title: "3 Bedroom House For Sale in Hillside",
     description:
-      "A sunlit family home on a quiet Hillside avenue with mature gardens, staff quarters, and a double garage. Ideal for buyers seeking established Bulawayo living.",
+      "A sunlit family home on a quiet Hillside avenue with mature gardens, staff quarters, and a double garage.",
     status: "FOR_SALE",
     type: "HOUSE",
     price: 185000,
@@ -145,7 +145,7 @@ export const seedProperties: Property[] = [
     slug: "4-bedroom-house-ascot",
     title: "4 Bedroom House For Sale in Ascot",
     description:
-      "Spacious Ascot residence with open-plan living, borehole, solar-ready roof, and a landscaped yard perfect for entertaining.",
+      "Spacious Ascot residence with open-plan living, borehole, solar-ready roof, and a landscaped yard with space for entertaining.",
     status: "FOR_SALE",
     type: "HOUSE",
     price: 245000,
@@ -168,7 +168,7 @@ export const seedProperties: Property[] = [
     slug: "modern-home-parklands",
     title: "4 Bedroom House For Sale in Parklands",
     description:
-      "Contemporary Parklands home with high ceilings, a pool-ready yard, and secure boundary walls — ready for the next chapter.",
+      "Contemporary Parklands home with high ceilings, a pool-ready yard, and secure boundary walls.",
     status: "FOR_SALE",
     type: "HOUSE",
     price: 320000,
@@ -191,7 +191,7 @@ export const seedProperties: Property[] = [
     slug: "vacant-land-kumalo",
     title: "2,000m² Vacant Land For Sale in Kumalo",
     description:
-      "Prime residential stand in Kumalo with clear title and excellent access — build the home that matches your brief.",
+      "Residential stand in Kumalo with clear title and road access for a considered building project.",
     status: "FOR_SALE",
     type: "VACANT_LAND",
     price: 75000,
@@ -237,7 +237,7 @@ export const seedProperties: Property[] = [
     slug: "house-to-let-hillside",
     title: "3 Bedroom House To Let in Hillside",
     description:
-      "Fully walled Hillside rental with borehole water, fitted kitchen, and a private garden — available immediately.",
+      "Fully walled Hillside rental with borehole water, fitted kitchen, and a private garden. Availability is subject to confirmation.",
     status: "TO_LET",
     type: "HOUSE",
     price: 650,
@@ -260,7 +260,7 @@ export const seedProperties: Property[] = [
     slug: "commercial-unit-cbd",
     title: "Commercial Unit For Sale in CBD",
     description:
-      "Street-facing commercial unit with high foot traffic potential, suitable for retail or professional services.",
+      "Street-facing commercial unit in the CBD, suitable for retail or professional services. Buyers should assess foot traffic for their intended use.",
     status: "FOR_SALE",
     type: "COMMERCIAL",
     price: 180000,
@@ -320,7 +320,7 @@ export const seedPosts: Post[] = [
     title: "Affordable suburbs worth watching in Bulawayo",
     excerpt:
       "Where value still exists for first-time buyers and landlords building a rental portfolio.",
-    body: `Not every strong suburb carries a premium price tag. Emerging pockets around greater Bulawayo offer rental yields that reward patient landlords.\n\nWe look at stock quality, infrastructure, and tenant demand — then shortlist streets that punch above their price band.`,
+    body: `Not every established suburb carries a premium price tag. Some areas around greater Bulawayo may offer relative value for patient landlords, subject to property condition and tenant demand.\n\nWe consider stock quality, infrastructure, comparable evidence, and rental demand before presenting options for a client’s assessment.`,
     cover_image: img.news2,
     published_at: "2026-04-07T00:00:00.000Z",
   },
@@ -329,8 +329,8 @@ export const seedPosts: Post[] = [
     slug: "pricing-your-home-to-sell",
     title: "Pricing your home to sell in today’s market",
     excerpt:
-      "A practical valuation mindset for sellers who want serious buyers, not months of tyre-kickers.",
-    body: `Overpricing is the most expensive mistake a seller can make. In Bulawayo’s selective market, buyers compare relentlessly.\n\nA market assessment from Landlords Junction Properties anchors your asking price to active demand — so you sell with confidence, not guesswork.`,
+      "A practical valuation approach for sellers seeking credible enquiries and a well-managed sales process.",
+    body: `Overpricing can be costly for a seller. In Bulawayo’s selective market, buyers compare available properties carefully.\n\nA market assessment from Landlords Junction Properties considers comparable evidence and active demand, supporting a more informed pricing decision.`,
     cover_image: img.news3,
     published_at: "2026-05-21T00:00:00.000Z",
   },
@@ -354,14 +354,14 @@ export const lifestyles = [
   {
     slug: "vacant-land",
     title: "Vacant Land",
-    description: "Verified stands ready for thoughtful development.",
+    description: "Vacant stands for considered development.",
     image: img.land,
     type: "VACANT_LAND" as const,
   },
   {
     slug: "commercial",
     title: "Commercial",
-    description: "Retail, office, and investment-ready stock.",
+    description: "Retail, office, and commercial property.",
     image: img.commercial,
     type: "COMMERCIAL" as const,
   },

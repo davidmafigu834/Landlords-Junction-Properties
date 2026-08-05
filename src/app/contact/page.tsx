@@ -29,10 +29,6 @@ export default function ContactPage() {
               </a>
             </dd>
           </div>
-          <div>
-            <dt className="font-semibold text-ink">Phone</dt>
-            <dd className="text-muted">+263 29 XXX XXXX</dd>
-          </div>
         </dl>
         <p className="mt-8 max-w-md text-sm text-muted italic">{BRAND.motto}</p>
       </div>
