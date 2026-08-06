@@ -69,7 +69,7 @@ export function SiteHeader() {
         </div>
       </div>
       <div className="section-pad container-site flex h-[4.6rem] items-center justify-between gap-4 lg:h-[5.35rem]">
-        <Link href="/" className="flex min-w-0 items-center rounded-sm bg-navy px-2">
+        <Link href="/" className="flex min-w-0 items-center">
           <Image
             src="/logo.png"
             alt={BRAND.name}

@@ -14,7 +14,7 @@ export default function LoginPage() {
     <div className="section-pad flex min-h-[70vh] items-center justify-center py-16">
       <div className="w-full max-w-md border border-line bg-white p-8 shadow-sm">
         <div className="mb-6">
-          <div className="mb-4 w-fit rounded-sm bg-navy p-3">
+          <div className="mb-4 w-fit bg-transparent">
             <Image
               src="/logo.png"
               alt="Landlords Junction Properties"
