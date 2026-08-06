@@ -9,7 +9,7 @@ export function HomeHero() {
       <div className="relative min-h-[34rem] bg-navy text-white sm:min-h-[38rem] lg:min-h-[41rem]">
         <Image
           src="/ljp-night-hero.png"
-          alt="Well-managed residential property in Bulawayo"
+          alt="Well-managed residential property in Zimbabwe"
           fill
           priority
           className="object-cover"
@@ -31,7 +31,7 @@ export function HomeHero() {
             </h1>
             <p className="animate-rise delay-2 mx-auto mt-5 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base lg:mx-0 lg:text-lg">
               We protect and grow property wealth through disciplined advice, ethical execution, and
-              accountable service across Bulawayo.
+              accountable service across Zimbabwe.
             </p>
             <div className="animate-rise delay-3 mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
               <Link href="/properties" className="btn-orange !rounded-sm">

@@ -58,7 +58,7 @@ export default async function PropertiesPage({
         <div className="section-pad container-site">
           <h1 className="display text-3xl sm:text-4xl md:text-5xl">Browse properties</h1>
           <p className="mt-2 max-w-2xl text-sm text-white/75 sm:text-base">
-            Search listings for sale and to let across Bulawayo and beyond.
+            Search listings for sale and to let across Zimbabwe.
           </p>
           <div className="mt-6">
             <HeroSearch compact />

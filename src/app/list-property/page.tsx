@@ -47,7 +47,7 @@ export default function ListPropertyPage() {
         </aside>
 
         <section className="min-w-0 border border-line bg-paper p-5 sm:p-6 md:p-8">
-          <h2 className="display text-2xl text-ink sm:text-3xl">Property offer letter</h2>
+          <h2 className="display text-2xl text-ink sm:text-3xl">Property To Be Sold</h2>
           <p className="mt-2 text-sm text-muted">
             Please provide accurate contact, ownership, and property details.
           </p>

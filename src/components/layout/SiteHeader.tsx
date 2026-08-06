@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Mail, MapPin, Menu, UserRound, X } from "lucide-react";
+import { Mail, MapPin, Menu, Phone, UserRound, X } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 
 const links = [
@@ -55,8 +55,12 @@ export function SiteHeader() {
             </a>
             <span className="flex items-center gap-2">
               <MapPin size={13} className="text-orange" />
-              {BRAND.location}
+              {BRAND.address}
             </span>
+            <a href={`tel:${BRAND.phoneHref}`} className="flex items-center gap-2 hover:text-orange">
+              <Phone size={13} className="text-orange" />
+              {BRAND.phone}
+            </a>
           </div>
           <Link href="/login" className="flex items-center gap-2 text-white/80 hover:text-orange">
             <UserRound size={13} />
@@ -65,7 +69,7 @@ export function SiteHeader() {
         </div>
       </div>
       <div className="section-pad container-site flex h-[4.6rem] items-center justify-between gap-4 lg:h-[5.35rem]">
-        <Link href="/" className="flex min-w-0 items-center">
+        <Link href="/" className="flex min-w-0 items-center rounded-sm bg-navy px-2">
           <Image
             src="/logo.png"
             alt={BRAND.name}

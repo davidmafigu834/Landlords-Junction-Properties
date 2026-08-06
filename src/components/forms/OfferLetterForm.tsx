@@ -14,7 +14,7 @@ export function OfferLetterForm() {
       action={(formData) => {
         startTransition(async () => {
           const offerDetails = [
-            "Property listing offer letter",
+            "Property to be sold",
             `Property address: ${formData.get("propertyAddress")}`,
             `Property type: ${formData.get("propertyType")}`,
             `Listing intention: ${formData.get("listingIntention")}`,
@@ -127,7 +127,7 @@ export function OfferLetterForm() {
           className="btn-primary min-h-11 w-full sm:ml-auto sm:w-auto"
           disabled={pending}
         >
-          {pending ? "Submitting…" : "Submit offer letter"}
+          {pending ? "Submitting…" : "Submit"}
         </button>
       </div>
     </form>

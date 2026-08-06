@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { ClipboardList, Mail, MessageCircle, RotateCcw } from "lucide-react";
+import { ClipboardList, Mail, MessageCircle, Phone } from "lucide-react";
+import { BRAND } from "@/lib/brand";
 
 const actions = [
   { label: "Speak with us", href: "/contact", icon: MessageCircle },
   { label: "Send enquiry", href: "/contact", icon: ClipboardList },
   { label: "Email us", href: "mailto:hello@landlordsjunction.co.zw", icon: Mail },
-  { label: "Request callback", href: "/contact", icon: RotateCcw },
+  { label: "Call office", href: `tel:${BRAND.phoneHref}`, icon: Phone },
 ];
 
 export function FloatingContactRail() {
@@ -23,7 +24,7 @@ export function FloatingContactRail() {
           </>
         );
 
-        return action.href.startsWith("mailto:") ? (
+        return !action.href.startsWith("/") ? (
           <a
             key={action.label}
             href={action.href}

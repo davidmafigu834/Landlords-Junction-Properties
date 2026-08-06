@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { getListingCounts } from "@/lib/data/queries";
 import { BRAND } from "@/lib/brand";
 
@@ -149,7 +149,10 @@ export async function SiteFooter() {
           />
           <p className="mt-2 text-sm text-white/75">{BRAND.location}</p>
           <div className="mt-4 space-y-2 text-xs text-white/65">
-            <p className="flex items-center gap-2"><MapPin size={13} className="text-orange" />{BRAND.location}</p>
+            <p className="flex items-center gap-2"><MapPin size={13} className="shrink-0 text-orange" />{BRAND.address}</p>
+            <a href={`tel:${BRAND.phoneHref}`} className="flex items-center gap-2 hover:text-orange">
+              <Phone size={13} className="text-orange" />{BRAND.phone}
+            </a>
             <a href="mailto:hello@landlordsjunction.co.zw" className="flex items-center gap-2 hover:text-orange">
               <Mail size={13} className="text-orange" />hello@landlordsjunction.co.zw
             </a>

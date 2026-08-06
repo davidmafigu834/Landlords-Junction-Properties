@@ -1,7 +1,7 @@
 export const BRAND = {
   name: "Landlords Junction Properties",
   shortName: "LJP",
-  tagline: "Trusted steward of property wealth",
+  tagline: "The trusted stewards of property wealth",
   motto: "Steward property wealth with trust and discipline",
   positioning:
     "The property stewardship company that protects and grows property wealth through disciplined advice, ethical execution, and accountable service.",
@@ -23,4 +23,7 @@ export const BRAND = {
     "Legacy before short-term success",
   ],
   location: "Bulawayo, Zimbabwe",
+  address: "LAPF House, 3rd Floor, Bulawayo, Zimbabwe",
+  phone: "(0292) 887641",
+  phoneHref: "+263292887641",
 } as const;

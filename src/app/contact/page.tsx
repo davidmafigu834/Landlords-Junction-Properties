@@ -10,13 +10,22 @@ export default function ContactPage() {
       <div className="min-w-0">
         <h1 className="display text-3xl text-ink sm:text-4xl md:text-5xl">Contact us</h1>
         <p className="mt-4 max-w-md text-sm text-muted sm:text-base">
-          Reach {BRAND.name} in {BRAND.location}. We help owners, investors, buyers, and tenants make
-          informed property decisions with clear next steps and prompt acknowledgement.
+          Reach {BRAND.name} at our {BRAND.location} office. We help owners, investors, buyers, and
+          tenants across Zimbabwe make informed property decisions with clear next steps and prompt
+          acknowledgement.
         </p>
         <dl className="mt-8 space-y-4 text-sm">
           <div>
             <dt className="font-semibold text-ink">Office</dt>
-            <dd className="text-muted">{BRAND.location}</dd>
+            <dd className="text-muted">{BRAND.address}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-ink">Landline</dt>
+            <dd>
+              <a href={`tel:${BRAND.phoneHref}`} className="link-accent">
+                {BRAND.phone}
+              </a>
+            </dd>
           </div>
           <div>
             <dt className="font-semibold text-ink">Email</dt>

@@ -18,7 +18,7 @@ const body = Source_Sans_3({
 
 export const metadata: Metadata = {
   title: {
-    default: `${BRAND.name} | Property Stewardship in Bulawayo`,
+    default: `${BRAND.name} | Property Stewardship Across Zimbabwe`,
     template: `%s | ${BRAND.name}`,
   },
   description: BRAND.positioning,
